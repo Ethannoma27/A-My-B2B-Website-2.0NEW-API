@@ -50,24 +50,52 @@ header {
 
 header .logo,
 header .header-right {
-  line-height: 1.2; /* 减小字体行高，使字符垂直距离更紧凑 */
+  line-height: 1.2; /* 保持紧凑行高 */
+}
+header .logo {
+  font-size: 36px !important;
+  font-weight: 600;
+  color: #3a5f97;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0;
+  text-align: center;
+  margin-top: 5px;
+
+
+  display: flex;              
+  align-items: center;        
+  justify-content: center;     
+  gap: 8px;                  
+  overflow: visible;         
 }
 
-header .logo {
-  font-size: 30px !important ;  /* 字体大小可以根据需求调整 */
-  font-weight: 600;  /* 调整字重，接近 RENPHO 字体的效果 */
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
   color: #3a5f97;
-  font-family: 'Poppins', sans-serif;  /* 确保使用相同的字体 */
-  letter-spacing: 0;  /* 无需增加字母间距，保持字体的紧凑感 */
-  text-align: center; /* 让 logo 和下面的文本居中对齐 */
-  margin-top: 5px;  /* 适当减小 logo 上方的间距 */ 
+  animation: slideIn 0.8s ease-out forwards;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.logo-link:hover {
+  color: #2b4d7f;
+  text-decoration: none;
 }
 
 .logo .since {
-  font-size: 14px; /* 设置字体大小 */
-  color: #666; /* 设置颜色为灰色 */
-  margin-left: 8px; /* 给文字和 logo 之间留点空隙 */
-  font-style: italic; /* 使用斜体，显得更加优雅 */ 
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  white-space: nowrap;        
+}
+
+/* 动画定义 */
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* 调整 "Evolved from Hawin" 位置，使其更靠下 */
@@ -627,19 +655,13 @@ header nav ul li a:hover {
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      HiwinMiner<span class="since">Since 2017</span>
-      <p class="evolved">Hawinbon Reborn</p>
-    </div>
+<header>
+  <div class="logo">
+    <a href="profile/index.html" class="logo-link">Hawinbon</a> 
+    <span class="since">Since 2017</span>
+  </div>
+  </div>
 
-    <div class="brand-mission">
-      <p class="mission-text">
-        <span class="heart-icon">❤️</span>
-        Brand Mission: To honor our promises and build lifelong, friendly relationships with our customers
-      </p>
-    </div> 
-    </div> 
 
     <nav>
       <ul>
@@ -751,7 +773,7 @@ header nav ul li a:hover {
     <div class="footer-container">
       <div class="footer-left">
 
-        <p>&copy; 2025 . All rights reserved.</p>
+        <p>&copy; 2025.Hawinbon All rights reserved.</p>
       </div>
       <div class="footer-center">
         <p>
@@ -862,4 +884,6 @@ header nav ul li a:hover {
 </script>
 
 </body>
+
 </html>
+
