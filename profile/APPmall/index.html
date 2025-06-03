@@ -1,285 +1,250 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>拼多多风格商城</title>
+    <title>Interest-Based Ecommerce</title>
     <style>
-        /* 基本样式 */
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
             color: #333;
         }
 
-        h1, h2, h3 {
-            color: #333;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 15px;
-        }
-
-        /* 首页头部 */
+        /* Header */
         .header {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px;
             background-color: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .header .logo {
-            font-size: 28px;
-            color: #ff4c4c;
-            font-weight: bold;
-        }
-
-        .header .search-bar {
-            flex-grow: 1;
+            padding: 10px 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 20px;
-            border: 1px solid #ddd;
-            padding: 6px 12px;
-            background-color: #f4f4f4;
         }
 
-        .header .search-bar input {
-            border: none;
-            outline: none;
-            width: 80%;
-            font-size: 14px;
-            background-color: transparent;
+        .header .logo {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #333;
         }
 
-        .header .search-bar button {
+        .header nav a {
+            margin: 0 12px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1em;
+        }
+
+        .header nav a:hover {
+            color: #ff4c4c;
+        }
+
+        /* Banner Section - Interest Based Recommendations */
+        .banner {
+            width: 100%;
+            height: 250px;
             background-color: #ff4c4c;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .banner h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .banner .cta-btn {
+            background-color: #fff;
+            color: #ff4c4c;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-size: 1.2em;
             border: none;
-            border-radius: 50%;
-            padding: 8px;
             cursor: pointer;
         }
 
-        /* 优惠信息区 */
-        .discount-banner {
-            margin: 15px 0;
-            background-color: #ffebeb;
-            padding: 15px;
-            text-align: center;
-            border-radius: 10px;
+        .banner .cta-btn:hover {
+            background-color: #e04343;
+            color: #fff;
         }
 
-        .discount-banner span {
-            color: #ff4c4c;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        /* 商品展示区 */
-        .product-list {
+        /* Product Cards Section */
+        .product-container {
+            padding: 20px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 15px;
         }
 
         .product-card {
-            background-color: white;
+            background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             overflow: hidden;
-            padding: 15px;
             text-align: center;
-            position: relative;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
         }
 
         .product-card img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 8px;
         }
 
-        .product-card h3 {
-            font-size: 16px;
-            margin: 10px 0;
+        .product-card .product-info {
+            padding: 15px;
         }
 
-        .product-card .price {
-            font-size: 16px;
+        .product-card .product-info h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .product-card .product-info p {
+            font-size: 1.1em;
             color: #ff4c4c;
-            font-weight: bold;
             margin-bottom: 12px;
         }
 
-        .product-card .buy-btn {
+        .product-card .product-info .buy-btn {
             background-color: #ff4c4c;
-            color: white;
-            padding: 10px 0;
+            color: #fff;
             border: none;
-            border-radius: 5px;
-            width: 100%;
-            font-size: 16px;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
-        .product-card .buy-btn:hover {
+        .product-card .product-info .buy-btn:hover {
             background-color: #e04343;
         }
 
-        /* 底部导航 */
+        /* Footer */
         .footer-nav {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px;
             background-color: #fff;
-            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
         }
 
-        .footer-nav div {
-            text-align: center;
-            font-size: 14px;
-            color: #777;
-        }
-
-        .footer-nav div a {
+        .footer-nav a {
+            color: #333;
             text-decoration: none;
+            font-size: 1em;
+        }
+
+        .footer-nav a:hover {
             color: #ff4c4c;
         }
 
-        /* 分类推荐区 */
-        .category-section {
-            background-color: white;
-            padding: 12px 0;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-        .category-section h2 {
-            font-size: 18px;
-            margin-bottom: 12px;
-            padding: 0 15px;
-        }
+            .product-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
 
-        .category-section .category-item {
-            display: inline-block;
-            width: 30%;
-            text-align: center;
-            margin: 5px;
-            padding: 12px;
-            border-radius: 5px;
-            background-color: #f7f7f7;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+            .banner h2 {
+                font-size: 1.6em;
+            }
 
-        .category-section .category-item:hover {
-            background-color: #ffebeb;
-        }
+            .banner p {
+                font-size: 1.1em;
+            }
 
-        .category-section .category-item img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            margin-bottom: 5px;
-        }
-
-        .category-section .category-item span {
-            font-size: 14px;
-            color: #555;
+            .footer-nav {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
     </style>
 </head>
 <body>
 
-    <!-- 首页头部 -->
+    <!-- Header Section -->
     <div class="header">
-        <div class="logo">拼多多</div>
-        <div class="search-bar">
-            <input type="text" placeholder="搜索商品...">
-            <button><span>🔍</span></button>
-        </div>
+        <div class="logo">Interest Shop</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Categories</a>
+            <a href="#">Cart</a>
+            <a href="#">Profile</a>
+        </nav>
     </div>
 
-    <!-- 优惠信息区 -->
-    <div class="discount-banner">
-        <span>限时秒杀，低至5折！快来抢购</span>
+    <!-- Banner Section - Interest Based Recommendation -->
+    <div class="banner">
+        <h2>Discover Products You Love</h2>
+        <p>Personalized just for you, based on your interests!</p>
+        <button class="cta-btn">Shop Now</button>
     </div>
 
-    <!-- 分类推荐区 -->
-    <div class="category-section">
-        <h2>分类推荐</h2>
-        <div class="category-item">
-            <img src="https://via.placeholder.com/50" alt="分类1">
-            <span>家电</span>
-        </div>
-        <div class="category-item">
-            <img src="https://via.placeholder.com/50" alt="分类2">
-            <span>服饰</span>
-        </div>
-        <div class="category-item">
-            <img src="https://via.placeholder.com/50" alt="分类3">
-            <span>美妆</span>
-        </div>
-    </div>
-
-    <!-- 商品展示区 -->
-    <div class="container">
-        <h2>今日推荐</h2>
-        <div class="product-list">
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="商品1">
-                <h3>智能耳机</h3>
-                <p class="price">￥199</p>
-                <button class="buy-btn">立即购买</button>
+    <!-- Product Cards Section -->
+    <div class="product-container">
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Wireless Mouse">
+            <div class="product-info">
+                <h3>Wireless Mouse</h3>
+                <p>$25.99</p>
+                <button class="buy-btn">Buy Now</button>
             </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="商品2">
-                <h3>运动鞋</h3>
-                <p class="price">￥299</p>
-                <button class="buy-btn">立即购买</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Smartphone">
+            <div class="product-info">
+                <h3>Smartphone</h3>
+                <p>$799.00</p>
+                <button class="buy-btn">Buy Now</button>
             </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="商品3">
-                <h3>无线鼠标</h3>
-                <p class="price">￥89</p>
-                <button class="buy-btn">立即购买</button>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="商品4">
-                <h3>高清显示器</h3>
-                <p class="price">￥1299</p>
-                <button class="buy-btn">立即购买</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Bluetooth Speaker">
+            <div class="product-info">
+                <h3>Bluetooth Speaker</h3>
+                <p>$49.99</p>
+                <button class="buy-btn">Buy Now</button>
             </div>
         </div>
     </div>
 
-    <!-- 底部导航 -->
+    <!-- Footer Navigation -->
     <div class="footer-nav">
-        <div><a href="#">首页</a></div>
-        <div><a href="#">分类</a></div>
-        <div><a href="#">购物车</a></div>
-        <div><a href="#">我的</a></div>
+        <a href="#">Home</a>
+        <a href="#">Categories</a>
+        <a href="#">Cart</a>
+        <a href="#">Profile</a>
     </div>
 
 </body>
+
+
+
 </html>
+
+
+
+
