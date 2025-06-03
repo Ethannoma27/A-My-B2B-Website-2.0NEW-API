@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能生活商城</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+   
+ <style>
+    /* 基本样式 */
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+   /* 页眉 */
+    header {
+        background-color: #232f3e;
+        color: white;
+    }
+
+    /* 第一行：LOGO + 定位 + 搜索框 */
+   .header-top {
+    display: flex;
+    justify-content: flex-start;  /* 使内容左对齐 */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #131a22;
+}
+
+
+     /* LOGO部分 */
+.logo {
+    display: flex;
+    justify-content: flex-start;  /* 让 LOGO 处于左边 */
+    flex-shrink: 0;  /* 防止 LOGO 被压缩 */
+}
+
+.logo a {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff9900;
+    text-decoration: none;
+    margin-right: 30px;  /* 增加 LOGO 与定位+搜索框之间的间距 */
+}
+/* 定位部分 */
+.location {
+    color: #ffffff; /* 文字颜色 */
+    font-size: 14px; /* 默认字体大小 */
+    font-weight: 400; /* 常规字体粗细 */
+    text-align: left; /* 左对齐 */
+    margin-left: 20px; /* 左边距 */
+    display: flex;
+    flex-direction: row; /* 水平排列图标和文字 */
+    align-items: center; /* 图标和文字垂直居中对齐 */
+    margin-top: 10px; /* 顶部空隙 */
+}
+
+/* 定位图标样式 */
+.location-icon {
+    font-size: 16px; /* 图标大小 */
+    color: #ffffff;; /* 图标颜色为亚马逊橙色 */
+    margin-right: 8px; /* 图标和文字之间的间距 */
+}
+
+/* 文本部分 */
+.location-text {
+    display: flex;
+    flex-direction: column; /* 垂直排列两行文字 */
+}
+
+/* 第一行：Delivering to 部分 */
+.location #location-info {
+    font-size: 14px; /* 第一行小一点 */
+    font-weight: 400; /* 常规粗细 */
+    color: #ffffff; /* 白色文字 */
+    margin-bottom: 5px; /* 给两行文字加点间距 */
+    line-height: 1.4; /* 行高，确保文字不拥挤 */
+}
+
+/* 第二行：Update location 部分 */
+.location #update-location {
+    font-size: 14px; /* 与第一行保持一致的字体大小 */
+    font-weight: 400; /* 保持常规字体粗细 */
+    color: #888888; /* 灰色文字，简洁不花哨 */
+    text-decoration: none; /* 去掉下划线 */
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+    transition: color 0.3s ease, transform 0.3s ease; /* 鼠标悬停时的变色和平滑效果 */
+    margin-top: 5px; /* 上边距稍微增加，让两行有点空间 */
+}
+
+/* 鼠标悬停时的样式 */
+.location #update-location:hover {
+    color: #ff9900; /* 悬停时改变为亚马逊橙色 */
+    text-decoration: underline; /* 鼠标悬停时加下划线 */
+    transform: scale(1.05); /* 鼠标悬停时轻微放大 */
+}
+
+    /* 搜索框 */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 0;
+    margin-left: 20px;
+}
+
+
+/* 搜索框 */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 0;
+    margin-left: 20px;
+}
+
+/* 搜索框容器 */
+.search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px; /* 缩短最大宽度为 380px */
+    margin-left: 50px; /* 保持一定的左边距 */
+    margin-right: 50px; /* 保持右边距 */
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 输入框 */
+.search-box input {
+    padding: 8px 12px; /* 缩小内边距使其更紧凑 */
+    font-size: 14px;
+    border-radius: 30px;
+    border: none;
+    width: 100%;
+    margin-right: 10px;
+    outline: none;
+    height: 40px; /* 设置高度，使其垂直缩短 */
+}
+
+/* 搜索按钮 */
+.search-box button {
+    padding: 8px 16px;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 40px; /* 按钮的高度与输入框一致 */
+}
+
+/* 鼠标悬停时按钮颜色变化 */
+.search-box button:hover {
+    background-color: #e68a00;
+}
+
+
+    /* 导航栏区域 */
+    .nav-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #232f3e;
+        padding: 10px 0;
+    }
+
+    .nav-bar a {
+        color: white;
+        font-size: 14px;
+        margin: 0 20px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .nav-bar a:hover {
+        color: #ff9900;
+    }
+
+    .nav-bar a.active {
+        color: #ff9900;
+    }
+
+    /* Hero区域 */
+    .hero {
+        background: linear-gradient(to right, #0073e6, #1e90ff);
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .hero .cta-btn {
+        background-color: #ff9900;
+        color: white;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .hero .cta-btn:hover {
+        background-color: #e68a00;
+    }
+
+    /* 产品类别 */
+    .categories {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        padding: 40px 20px;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .category {
+        text-align: center;
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .category:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .category img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+
+    .category h4 {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .category p {
+        font-size: 14px;
+        color: #666;
+    }
+
+    /* 产品列表 */
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 30px;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .product {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .product img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .product img:hover {
+        transform: scale(1.05);
+    }
+
+    .product h3 {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    .product p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    .product .rating {
+        color: #FFD700;
+        margin-bottom: 10px;
+    }
+
+    .product .cta {
+        background-color: #ff9900;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .product .cta:hover {
+        background-color: #e68a00;
+    }
+
+    /* 页脚 */
+    footer {
+        background-color: #232f3e;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+    }
+</style>
+
+</head>
+<body>
+
+   <!-- 页眉 -->
+<header>
+    <!-- 第一行：LOGO + 定位 + 搜索框 -->
+    <div class="header-top">
+        <div class="logo">
+            <a href="#">智能生活商城</a>
+        </div>
+
+        <!-- 定位部分 -->
+              <div class="location">
+            <!-- 使用 Font Awesome 定位图标（圆形图标） -->
+            <i class="fas fa-map-marker-alt location-icon"></i> 
+            <div class="location-text">
+                <span id="location-info">Delivering to Saffron Walden</span>
+                <a href="#" id="update-location" class="update-location" style="display:none;">Update location</a>
+            </div>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="搜索商品..." id="searchInput">
+            <button onclick="searchProducts()">搜索</button>
+        </div>
+   
+    </div>
+</header>
+
+
+    <!-- 导航栏区域 -->
+    <div class="nav-bar">
+        <a href="#">首页</a>
+        <a href="#">所有品类</a>
+        <a href="#">智能家居</a>
+        <a href="#">家电</a>
+        <a href="#">健康护理</a>
+        <a href="#">宠物产品</a>
+        <a href="#">运动与户外</a>
+        <a href="#">联系我们</a>
+    </div>
+    </header>
+
+    <!-- Hero区域 -->
+    <section class="hero">
+        <h1>探索智能生活，畅享全方位科技体验</h1>
+        <p>无论是智能家居、家电、健康护理，还是宠物照顾、运动健身，我们的产品让您的每一天都充满智慧与便捷。</p>
+        
+
+        <button class="cta-btn" onclick="window.location.href='#'">立即探索</button>
+    </section>
+
+  
+        <!-- 产品类别 -->
+    <div class="categories">
+        <div class="category">
+            <img src="smart-home-icon.png" alt="智能家居">
+            <h4>智能家居</h4>
+            <p>智能音响、智能门锁、智能照明等</p>
+        </div>
+        <div class="category">
+            <img src="home-appliance-icon.png" alt="家电">
+            <h4>家电</h4>
+            <p>智能冰箱、智能洗衣机等</p>
+        </div>
+        <div class="category">
+            <img src="health-care-icon.png" alt="健康与个人护理">
+            <h4>健康与个人护理</h4>
+            <p>空气净化器、智能体重秤等</p>
+        </div>
+        <div class="category">
+            <img src="pet-products-icon.png" alt="宠物产品">
+            <h4>宠物产品</h4>
+            <p>智能宠物喂食器、健康监测器等</p>
+        </div>
+        <div class="category">
+            <img src="fitness-icon.png" alt="运动与户外">
+            <h4>运动与户外</h4>
+            <p>智能健身器械、户外露营装备等</p>
+        </div>
+    </div>
+
+    <!-- 产品展示 -->
+    <div class="product-list">
+        <div class="product">
+            <img src="smart-speaker1.jpg" alt="智能音响1">
+            <h3>Apple HomePod</h3>
+            <p>让你的家充满音乐与智能</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <button class="cta">添加到购物车</button>
+        </div>
+        <div class="product">
+            <img src="smart-speaker2.jpg" alt="智能音响2">
+            <h3>Sonos One</h3>
+            <p>无缝连接，极致音质</p>
+            <div class="rating">⭐⭐⭐⭐</div>
+            <button class="cta">添加到购物车</button>
+        </div>
+        <div class="product">
+            <img src="smart-speaker3.jpg" alt="智能音响3">
+            <h3>Samsung Galaxy Home</h3>
+            <p>智能家居的完美伙伴</p>
+            <div class="rating">⭐⭐⭐⭐</div>
+            <button class="cta">添加到购物车</button>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2025 智能家居商城 | 联系我们: support@home.com</p>
+    </footer>
+
+    <script>
+
+        // 搜索功能
+        function searchProducts() {
+            var searchQuery = document.getElementById("searchInput").value.trim();
+            if (searchQuery) {
+                alert("您搜索的商品是: " + searchQuery);
+            } else {
+                alert("请输入搜索内容");
+            }
+        }
+
+
+// 使用ipinfo.io的免费API来获取用户位置
+function getLocation() {
+    // 直接访问 ipinfo.io 的免费 API
+    fetch('https://ipinfo.io/json')
+        .then(response => response.json())
+        .then(data => {
+            // 获取到位置数据
+            const location = data.city || data.country || "未知位置";
+            const locationText = `Delivering to ${location}`;
+
+            // 更新页面显示位置
+            document.getElementById('location-info').textContent = locationText;
+            document.getElementById('update-location').style.display = 'inline';  // 显示 "Update location" 链接
+        })
+        .catch(error => {
+            console.error('Error fetching location data:', error);
+            document.getElementById('location-info').textContent = '无法获取位置';
+        });
+}
+
+// 页面加载时自动调用获取位置
+document.addEventListener('DOMContentLoaded', getLocation);
+    </script>
+
+</body>
+</html>
+

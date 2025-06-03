@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能家居产品页面</title>
+    <style>
+        /* 基本样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* 容器 */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 页眉 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0073e6;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header .nav {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header .nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* 面包屑导航 */
+        .breadcrumb {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+
+        .breadcrumb a:hover {
+            color: #005bb5;
+        }
+
+        /* 筛选器 */
+        .filters {
+            background-color: #fff;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            display: none;  /* 初始隐藏 */
+        }
+
+        .filters h3 {
+            margin-top: 0;
+        }
+
+        .filters form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filters label {
+            margin: 10px 0 5px;
+        }
+
+        .filters select {
+            padding: 8px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .filters button {
+            padding: 10px;
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .filters button:hover {
+            background-color: #005bb5;
+        }
+
+        /* 筛选器按钮 */
+        .filter-toggle {
+            padding: 10px;
+            background-color: #0073e6;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .filter-toggle:hover {
+            background-color: #005bb5;
+        }
+
+        /* 产品列表 */
+        .product-list {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .product {
+            background-color: #fff;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .product p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .product p:first-of-type {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 页眉 -->
+    <header>
+        <div class="logo">智能家居商城</div>
+        <nav>
+            <ul class="nav">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">所有品类</a></li>
+                <li><a href="#">关于我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- 面包屑导航 -->
+        <nav class="breadcrumb">
+            <a href="#">首页</a> &gt; 
+            <a href="#">智能家居</a> &gt; 
+            <a href="#">智能音响</a>
+        </nav>
+
+        <!-- 筛选器按钮 -->
+        <button class="filter-toggle" id="filterToggle">显示筛选条件</button>
+
+        <!-- 筛选器内容 -->
+        <div class="filters" id="filters">
+            <h3>筛选条件</h3>
+            <form>
+                <label for="brand">品牌</label>
+                <select id="brand" name="brand">
+                    <option value="apple">Apple</option>
+                    <option value="sony">Sony</option>
+                    <option value="xiaomi">Xiaomi</option>
+                </select>
+                <br>
+
+                <label for="price">价格</label>
+                <select id="price" name="price">
+                    <option value="0-1000">0 - 1000元</option>
+                    <option value="1000-3000">1000 - 3000元</option>
+                    <option value="3000-5000">3000 - 5000元</option>
+                </select>
+                <br>
+
+                <label for="rating">用户评分</label>
+                <select id="rating" name="rating">
+                    <option value="5">5星</option>
+                    <option value="4">4星及以上</option>
+                    <option value="3">3星及以上</option>
+                </select>
+                <br>
+
+                <button type="submit">应用筛选</button>
+            </form>
+        </div>
+
+        <!-- 产品列表 -->
+        <div class="product-list">
+            <h2>智能音响</h2>
+            <div class="product">
+                <img src="smart-speaker1.jpg" alt="智能音响1">
+                <p>Apple HomePod</p>
+                <p>价格: 2799元</p>
+                <button>添加到购物车</button>
+            </div>
+            <div class="product">
+                <img src="smart-speaker2.jpg" alt="智能音响2">
+                <p>Sonos One</p>
+                <p>价格: 2299元</p>
+                <button>添加到购物车</button>
+            </div>
+            <div class="product">
+                <img src="smart-speaker3.jpg" alt="智能音响3">
+                <p>Samsung Galaxy Home</p>
+                <p>价格: 2999元</p>
+                <button>添加到购物车</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2025 智能家居商城 | 联系我们: support@home.com</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 筛选器显示与隐藏
+        document.getElementById("filterToggle").onclick = function() {
+            var filterSection = document.getElementById("filters");
+            if (filterSection.style.display === "block") {
+                filterSection.style.display = "none";
+            } else {
+                filterSection.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

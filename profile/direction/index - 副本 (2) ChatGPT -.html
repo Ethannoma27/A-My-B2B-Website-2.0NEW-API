@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>全球市场分析报告 - ChatGPT 风格</title>
+<style>
+   body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #343541;
+    color: #e6e8eb;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-y: scroll;
+    line-height: 1.6;
+  }
+
+   /* 主体内容，给足够顶部padding避免被页眉遮挡 */
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 60px 20px 40px 20px; /* 80px 顶部内边距，确保内容不被 header 遮挡 */
+  background-color: #40414f;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgb(0 0 0 / 0.55);
+  min-height: 100vh;
+  overflow-wrap: break-word;
+}
+
+
+  /* 固定页眉 */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #343541;
+    color: #e6e8eb;
+    font-weight: 600;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    padding: 14px 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    z-index: 999;
+    user-select: none;
+  }
+
+  header svg {
+    margin-right: 14px;
+    stroke: #e6e8eb;
+  }
+
+  /* 聊天气泡通用样式 */
+  .chat-bubble {
+    background-color: #4a4c63;
+    padding: 18px 24px;
+    margin: 12px 0;
+    border-radius: 16px;
+    line-height: 1.5;
+    font-size: 1rem;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.4);
+  }
+
+  .chat-bubble h3 {
+    color: #f0f0f7;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #9a9baf;
+    padding-bottom: 6px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  }
+
+  .chat-bubble p {
+    margin: 10px 0;
+    color: #e0e2f1; /* 提亮文字颜色 */
+  }
+
+  .chat-bubble ul {
+    margin: 8px 0 0 20px;
+    padding: 0;
+    list-style-type: disc;
+    color: #d1d4e5; /* 提亮列表项文字 */
+  }
+
+  .chat-bubble ul li {
+    margin-bottom: 8px;
+  }
+
+  /* 关键字强调 */
+  .highlight {
+    color: #ff6b6b;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  .data {
+    font-weight: 600;
+    color: #7ec8e3;
+  }
+
+  footer {
+    margin-top: 10px;
+    padding: 10px;
+    color: #a1a3b8;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  
+/* 突出显示标题 */
+.highlight-title {
+  color: #ff6b6b; /* 柔和的红色 */
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* 高亮文本部分 */
+.highlight-text {
+  color: #7ec8e3;
+  background-color: rgba(126, 200, 227, 0.2);
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin: 12px 0;
+  font-style: italic;
+  text-align: left;
+  margin-left: 20px; /* 添加左边距让文本保持规范 */
+  margin-right: 20px; /* 右边距使得内容不显得太靠右 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1rem; /* 保持文本字体的一致性 */
+}
+
+/* 名言容器样式 - 精致的紫色标记 */
+.quote-container {
+  position: relative;
+  padding: 16px 20px 14px 26px; /* 左侧留出空间显示短条 */
+  margin: 28px 0 20px;
+}
+
+/* 使用伪元素添加短紫条 */
+.quote-container::before {
+  content: '';
+  position: absolute;
+  top: 6px;        /* 靠上但不贴边 */
+  left: 0;
+  width: 4px;
+  height: 72px;    /* 修改为更适中的高度 */
+  background-color: #a48ae2;
+  border-radius: 2px;
+}
+
+
+/* 名言文本样式 */
+.quote-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #cfc9f7;
+  text-align: left;
+  line-height: 1.7;
+  margin: 0 0 6px 0;
+}
+
+/* 作者名称样式 */
+.quote-author {
+  font-size: 0.95rem;
+  color: #9d9fbf;
+  text-align: right;
+  font-weight: 500;
+  margin: 0;
+}
+
+
+/* 实线分隔 */
+.separator {
+  border-color: #555867;
+  margin: 20px 0;
+  border-top: 3px solid #555867; /* 更粗的实线 */
+}
+
+</style>
+</head>
+<body>
+<header>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    stroke="#e6e8eb"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    width="28"
+    height="28"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    role="img"
+  >
+    <path d="M12 20h9"/>
+    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
+  </svg>
+  ChatGPT
+</header>
+
+<main>
+
+<section class="chat-bubble">
+  <h3 class="highlight-title">技术让你重拾自信</h3>
+  
+  <p>你曾被平台的规则“捆绑”，而自学技术让你走上了主动掌控的道路。这不仅是技术上的突破，更多的是心态的转变。</p>
+  
+  <div class="highlight-text">
+    你不再只是平台大BOSS的“附属(被收割er)”，而是主动掌控每个业务环节。
+  </div>
+
+  <p>从架构调整到SEO优化，你已经从“做生意”进化成了“掌控生意”的领导者。</p>
+
+  <div class="highlight-text">
+    自学技术让你获得了保护自己的“武器”，在挑战面前充满信心，掌控主动权。
+  </div>
+
+  <h4>技术不再是工具，而是反脆弱的力量！</h4>
+  
+  <p>你从被动到主动，逐步解锁了更多的能力。你的商业决策已经不再是基于“恐惧”，而是更多的机会。</p>
+
+  <div class="highlight-text">
+    面对挑战，你不再退缩，而是发现其中的机遇，继续推进你的事业。
+  </div>
+  
+  <!-- 哲理名言部分 -->
+  <div class="quote-container">
+    <p class="quote-text">“技术的进步使人类的自由从未如此强大。”</p>
+    <p class="quote-author">— 阿尔弗雷德·诺贝尔</p>
+  </div>
+
+  <hr class="separator">
+</section>
+
+</main>
+
+<footer>
+  <p>ChatGPT 也可能会犯错。请核查重要信息。</p>
+
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+

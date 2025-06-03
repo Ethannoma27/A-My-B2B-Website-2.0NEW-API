@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拼多多风格商城</title>
+    <style>
+        /* 基本样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* 首页头部 */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo {
+            font-size: 24px;
+            color: #ff4c4c;
+            font-weight: bold;
+        }
+
+        .header .search-bar {
+            flex-grow: 1;
+            margin: 0 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+        }
+
+        .header .search-bar input {
+            border: none;
+            outline: none;
+            width: 80%;
+            font-size: 14px;
+        }
+
+        .header .search-bar button {
+            background-color: #ff4c4c;
+            border: none;
+            border-radius: 50%;
+            padding: 6px;
+            cursor: pointer;
+        }
+
+        /* 优惠信息区 */
+        .discount-banner {
+            margin: 15px 0;
+            background-color: #ffdbdb;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .discount-banner span {
+            color: #ff4c4c;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* 商品展示区 */
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .product-card .price {
+            font-size: 14px;
+            color: #ff4c4c;
+            margin-bottom: 10px;
+        }
+
+        .product-card .buy-btn {
+            background-color: #ff4c4c;
+            color: white;
+            padding: 8px 0;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .product-card .buy-btn:hover {
+            background-color: #e04343;
+        }
+
+        /* 底部导航 */
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .footer-nav div {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .footer-nav div a {
+            text-decoration: none;
+            color: #ff4c4c;
+        }
+
+        /* 分类推荐区 */
+        .category-section {
+            background-color: white;
+            padding: 10px 0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .category-section h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .category-section .category-item {
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+            cursor: pointer;
+        }
+
+        .category-section .category-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-bottom: 5px;
+        }
+
+        .category-section .category-item span {
+            font-size: 14px;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 首页头部 -->
+    <div class="header">
+        <div class="logo">拼多多</div>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索商品...">
+            <button><span>🔍</span></button>
+        </div>
+    </div>
+
+    <!-- 优惠信息区 -->
+    <div class="discount-banner">
+        <span>限时秒杀，低至5折！快来抢购</span>
+    </div>
+
+    <!-- 分类推荐区 -->
+    <div class="category-section">
+        <h2>分类推荐</h2>
+        <div class="category-item">
+            <img src="https://via.placeholder.com/50" alt="分类1">
+            <span>家电</span>
+        </div>
+        <div class="category-item">
+            <img src="https://via.placeholder.com/50" alt="分类2">
+            <span>服饰</span>
+        </div>
+        <div class="category-item">
+            <img src="https://via.placeholder.com/50" alt="分类3">
+            <span>美妆</span>
+        </div>
+    </div>
+
+    <!-- 商品展示区 -->
+    <div class="container">
+        <h2>今日推荐</h2>
+        <div class="product-list">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="商品1">
+                <h3>智能耳机</h3>
+                <p class="price">￥199</p>
+                <button class="buy-btn">立即购买</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="商品2">
+                <h3>运动鞋</h3>
+                <p class="price">￥299</p>
+                <button class="buy-btn">立即购买</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="商品3">
+                <h3>无线鼠标</h3>
+                <p class="price">￥89</p>
+                <button class="buy-btn">立即购买</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="商品4">
+                <h3>高清显示器</h3>
+                <p class="price">￥1299</p>
+                <button class="buy-btn">立即购买</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <div class="footer-nav">
+        <div><a href="#">首页</a></div>
+        <div><a href="#">分类</a></div>
+        <div><a href="#">购物车</a></div>
+        <div><a href="#">我的</a></div>
+    </div>
+
+</body>
+</html>
+
+
