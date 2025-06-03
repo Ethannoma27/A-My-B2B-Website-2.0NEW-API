@@ -97,32 +97,19 @@
   </footer>
 
   <!-- Stripe.js script -->
-  <script src="https://js.stripe.com/v3/"></script>
   <script>
-    // Stripe public key
-    const stripe = Stripe('pk_test_51RVs3m2MBEOllDDEfBkC0wDhNbtnd4DLM7okdYLtyGSsT1cBS2FEQQ3pEMLwkZ8V48tzLiGDNqwNabM0aYGozxtb001yyXi8Q9'); // Replace with your Stripe public key
+    // Stripe Payment Link
+    const paymentLink = 'https://buy.stripe.com/test_4gM5kw0bg22baIogmM1ZS00';  // Replace with your Payment Link
 
     // Checkout button click handler
     document.getElementById('checkout-button').addEventListener('click', function() {
-      fetch('/create-checkout-session', {  // Backend endpoint for session creation
-        method: 'POST',
-      })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(sessionId) {
-        return stripe.redirectToCheckout({ sessionId: sessionId.id });
-      })
-      .then(function(result) {
-        if (result.error) {
-          alert(result.error.message);
-        }
-      })
-      .catch(function(error) {
-        console.error('Error:', error);
-      });
+      // Redirect to Stripe Payment Link
+      window.location.href = paymentLink;
     });
   </script>
 
 </body>
+
 </html>
+
+
