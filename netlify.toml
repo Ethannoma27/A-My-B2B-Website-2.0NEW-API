@@ -1,0 +1,7 @@
+[build]
+  base = "/profile/Netlify"
+  publish = "/profile/Netlify"
+  functions = "functions"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
