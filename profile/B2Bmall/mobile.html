@@ -1,0 +1,1089 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+ <style>
+    /* 基本样式 */
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+   /* 页眉 */
+    header {
+        background-color: #232f3e;
+        color: white;
+    }
+
+    /* 第一行：LOGO + 定位 + 搜索框 */
+   .header-top {
+    display: flex;
+    justify-content: flex-start;  /* 使内容左对齐 */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #131a22;
+
+}
+
+
+     /* LOGO部分 */
+.logo {
+    display: flex;
+    justify-content: flex-start;  /* 让 LOGO 处于左边 */
+    flex-shrink: 0;  /* 防止 LOGO 被压缩 */
+}
+
+.logo a {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff9900;
+    text-decoration: none;
+    margin-right: 10px;  /* 增加 LOGO 与定位+搜索框之间的间距 */
+}
+/* 定位部分 */
+.location {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* 定位图标样式 */
+.location-icon {
+    font-size: 16px;
+    color: #ffffff;
+    margin-right: 8px;
+}
+
+/* 文本部分 */
+.location-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 第一行：Deliver to + 城市 */
+.location #location-info {
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-top: 5px;
+}
+
+/* “Deliver to” 文案：灰色 */
+.location #location-info .label {
+    color: #888888;
+}
+
+/* 城市名：白色 */
+.location #location-info .city {
+    color: #999999;
+}
+
+/* 第二行：国家 */
+.location #update-location {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 5px;
+    line-height: 1.4;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+
+/* 搜索框容器 */
+.search-bar {
+    display: flex;
+    justify-content: flex-start;  /* 使内容左对齐 */
+    align-items: center;
+    flex-grow: 1;  /* 保持 flex-grow 但调整对齐 */
+    padding: 0;
+    margin-left: 10px;  /* 控制间距 */
+}
+
+
+/* 搜索框外观 */
+.search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: none;
+    margin-left: 10px;  /* 如果要直接给搜索框左边加间距 */
+}
+/* 下拉框部分 */
+.select-wrapper {
+    position: relative;
+    width: 160px;
+}
+
+/* 下拉框按钮样式 */
+.dropdown-btn {
+    width: 100%;
+    padding: 8px 30px 8px 12px; /* 留出空间给箭头 */
+    font-size: 14px;
+    border: 1px solid #ddd; /* 增加边框 */
+    background-color: #fff; /* 背景为白色 */
+    border-radius: 8px; /* 圆角 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 40px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 下拉框箭头向右移动5px */
+.dropdown-btn i {
+    color: #888;
+    position: absolute;
+    right: 12px; /* 保持原来的位置 */
+    transform: translateX(5px); /* 向右偏移5px */
+}
+
+/* 下拉框按钮聚焦时样式变化 */
+.dropdown-btn:focus {
+    outline: none;
+    border-color: #0066cc;
+    background-color: #f5faff;
+}
+
+/* 下拉框菜单 */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    z-index: 10;
+    margin-top: 11px;
+    list-style: none; /* 去掉默认的圆点符号 */
+}
+
+/* 下拉框项 */
+.dropdown-menu li {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* 鼠标悬停时选项背景色变化 */
+.dropdown-menu li:hover {
+    background-color: #f5f5f5;
+}
+
+/* 鼠标点击后的展开效果 */
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+
+/* 搜索框输入框 */
+.search-box input {
+    padding: 6px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 38px;
+    background-color: transparent; /* 透明背景 */
+}
+
+/* 输入框聚焦时边框颜色变化 */
+.search-box input:focus {
+    border-color: #ff9900;
+}
+
+/* 搜索按钮 */
+.search-box button {
+    padding: 6px 14px;
+    background-color: #ffcc66; /* 初始背景颜色稍微深一些的橙色 */
+    color: #666666;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 38px;
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 鼠标悬停时按钮背景颜色变化 */
+.search-box button:hover {
+    background-color: #ff9900; /* 悬停时变为亚马逊橙 */
+}
+
+/* 按钮点击时的效果 */
+.search-box button:active {
+    background-color: #e68900; /* 点击时变为更深的橙色 */
+}
+
+
+/* 放大镜图标样式 */
+.search-box button i {
+    font-size: 18px;
+    color: #666666;
+}
+
+.lang-selector {
+    position: relative;
+    margin-left: 16px;
+    background-color: #f1f1f1;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #333;
+}
+
+.lang-toggle i {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 下拉菜单 */
+.lang-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 6px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    display: none;
+    z-index: 999;
+    min-width: 100px;
+}
+
+.lang-dropdown li {
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.lang-dropdown li:hover {
+    background-color: #f5f5f5;
+}
+
+/* 显示下拉菜单时添加这个类 */
+.lang-selector.open .lang-dropdown {
+    display: block;
+}
+
+
+/* 通用按钮样式 */
+.btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    margin-top: 6px;
+    text-decoration: none;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    cursor: pointer;
+    line-height: 1.4;
+    background-color: transparent;
+    height: 44px;
+    min-width: 100px;
+}
+
+/* 通用按钮样式 */
+.user-btn, .cart-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+
+
+    margin-top: -3px;  /* 上移 3px */
+    transform: translate(10px, -10px); /* 同时右移 10px 和上移 10px */
+    padding: 7px 10px;  /* 原本 8px 12px 缩小 20% */
+    height: 36px;         /* 原本 44px 缩小 20% */
+    min-width: 80px;        /* 原本 100px 缩小 20% */
+
+    text-decoration: none;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    cursor: pointer;
+    line-height: 1.4;
+    background-color: transparent;
+  
+}
+
+/* 用户菜单容器 */
+.user-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row; /* 水平方向排列 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: flex-start; /* 左对齐 */
+    gap: 8px; /* 按钮间距 */
+    padding: 4px;
+    min-width: 160px;
+    box-sizing: border-box;
+}
+
+
+
+/* 用户按钮中的文本 */
+.user-btn .sign-in-text {
+    font-size: 12px; /* 小字体 */
+    color: #fff;
+}
+
+.user-btn .account-text {
+    font-size: 16px; /* 大字体 */
+    font-weight: 600; /* 加粗 */
+    color: #fff;
+}
+
+/* 用户菜单按钮悬浮效果 */
+.user-menu .user-btn:hover {
+    border-color: #0073e6; /* 边框颜色改为现代的蓝色 */
+    background-color: #f5f5f5; /* 悬浮时的背景色：浅灰色 */
+    color: #131921 !important; /* 悬浮时文字颜色：深蓝色 */
+}
+
+/* 使 sign-in-text 和 account-text 也有相同的悬浮效果 */
+.user-menu .user-btn:hover .sign-in-text,
+.user-menu .user-btn:hover .account-text {
+    color: #131921 !important; /* 悬浮时文字颜色：深蓝色 */
+}
+
+/* 购物车按钮悬浮效果 */
+.cart-btn:hover {
+    border-color: #0073e6;
+    background-color: #f5f5f5;
+    color: #131921;
+}
+
+
+    /* 导航栏区域 */
+    .nav-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #232f3e;
+        padding: 10px 0;
+    }
+
+    .nav-bar a {
+        color: white;
+        font-size: 14px;
+        margin: 0 20px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .nav-bar a:hover {
+        color: #ff9900;
+    }
+
+    .nav-bar a.active {
+        color: #ff9900;
+    }
+
+    
+/* Hero区域 */
+.hero {
+    background: url('images/HiGift.jpg') no-repeat center center;
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: white;
+    padding: 80px 0;
+    min-height: 600px;  /* 给 Hero 区域设置一个最小高度 */
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative; /* 设置为相对定位，作为子元素的定位参考 */
+}
+
+/* 渐变效果 */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(128, 128, 128, 0), rgba(128, 128, 128, 0.6)); /* 透明到灰色渐变 */
+    z-index: 1;
+}
+
+/* Hero文本层级 */
+.hero h1,
+.hero p {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* 修改下拉框背景为灰色 */
+#categorySelect {
+    background-color: #e6e6e6;  /* 灰色背景 */
+    width: 100%;
+    padding: 6px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    appearance: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 38px;
+}
+
+/* 下拉框按钮聚焦时背景颜色变化 */
+#categorySelect:focus {
+    background-color: #f0f0f0;  /* 更浅的灰色 */
+}
+
+/* 为了确保下拉框内容正确展示 */
+#categorySelect option {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+/* 畅销商品区域 */
+
+.best-sellers {
+    background-color: #f8f8f8;
+    padding: 50px 0;
+    margin-top: 20px;  /* 距离上方 Hero 区域的间距 */
+    clear: both;  /* 确保它在 Hero 区域下方 */
+}
+
+.best-sellers h2 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+/* 商品轮播容器 */
+.product-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 0 20px;
+  scroll-behavior: smooth;
+}
+
+.product-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.product-carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  }
+
+
+  /* 商品卡片样式 */
+.product-item {
+  width: 220px;
+  height: auto; /* 高度不固定，允许内容自适应 */
+  background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+  border-radius: 8px;
+  position: relative; /* 用于绝对定位标签 */
+  display: flex;
+  flex-direction: column; /* 垂直排列图片、标题、价格 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* 防止内容溢出 */
+  padding-top: 10px; /* 给伪元素顶部留出空间 */
+}
+
+/* 商品卡片上的上边框 - 使用伪元素实现 */
+.product-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px; /* 上边框的高度 */
+  background-color: rgba(0, 0, 0, 0.1); /* 轻微的边框颜色 */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* 商品卡片内容区 */
+.product-item .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直居中内容 */
+  align-items: center; /* 水平居中内容 */
+  padding: 10px; /* 给内容区域添加间距 */
+}
+
+/* 商品标题链接样式 */
+.product-item .product-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  text-decoration: none; /* 去掉链接的下划线 */
+  word-wrap: break-word; /* 支持标题换行 */
+  overflow: hidden;
+  white-space: normal; /* 允许多行文本 */
+  line-height: 1.3; /* 让文字间距更合适 */
+  margin-top: 10px; /* 标题和图片之间的间距 */
+  margin-bottom: 10px; /* 标题和价格之间的间距 */
+}
+
+/* 价格 */
+.product-item .price {
+  font-size: 16px;
+  color: #e60000; /* 价格使用红色 */
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 20px; /* 将价格区域放到图框下方 */
+  background-color: #f8f8f8; /* 使价格区域与其他部分区分开 */
+  text-align: center;
+}
+
+
+/* Sale 标签 */
+.product-item .sale-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f44336; /* Sale 标签颜色 */
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+
+/* 商品图片 */
+.product-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px; /* 适当间距 */
+}
+
+/* 商品标题 */
+.product-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+
+/* 鼠标悬停效果 */
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 滚动行为优化 */
+.product-carousel {
+  scroll-behavior: smooth;
+}
+
+/* 适应小屏设备 */
+@media screen and (max-width: 768px) {
+  .product-item {
+    width: 180px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-item {
+    width: 160px;
+  }
+}
+
+
+    /* 页脚 */
+    footer {
+        background-color: #232f3e;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+    }
+
+            .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+</style>
+
+</head>
+<body>
+
+   <!-- 页眉 -->
+<header>
+    <!-- 第一行：LOGO + 定位 + 搜索框 -->
+    <div class="header-top">
+        <div class="logo">
+            <a href="#">智能生活商城</a>
+        </div>
+
+<div class="location">
+    <i class="fas fa-map-marker-alt location-icon"></i>
+    <div class="location-text">
+        <!-- 第一行：固定 "Deliver to"，动态城市 -->
+        <div id="location-info">
+            <span class="label">Deliver to </span>
+            <span class="city" id="city-name">...</span>
+        </div>
+
+        <!-- 第二行：国家 -->
+        <div id="update-location" class="update-location" style="display: none;">定位中...</div>
+    </div>
+</div>
+
+
+
+<div class="search-bar">
+   <!-- 搜索框 -->
+<div class="search-box">
+    <div class="select-wrapper">
+        <!-- 自定义的下拉框 -->
+        <div class="dropdown">
+            <button id="categorySelect" class="dropdown-btn">
+                All <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li data-value="all">All</li>
+                <li data-value="electronics">Electronics</li>
+                <li data-value="clothing">Clothing</li>
+                <li data-value="books">Books</li>
+            </ul>
+        </div>
+    </div>
+
+    <input type="text" placeholder="搜索商品..." id="searchInput">
+    <button onclick="searchProducts()">
+        <i class="fas fa-search"></i>
+    </button>
+</div>
+
+    <!-- 语言选择组件，放在搜索框右侧 -->
+    <div class="lang-selector">
+        <div class="lang-toggle">
+            <i class="fas fa-globe"></i>
+            <span>EN</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <ul class="lang-dropdown">
+            <li onclick="setLanguage('zh')">中文</li>
+            <li onclick="setLanguage('en')">English</li>
+            <li onclick="setLanguage('fa')">فارسی</li>
+            <li onclick="setLanguage('es')">Español</li>
+        </ul>
+    </div>
+</div>
+
+
+   
+<!-- 用户登录与账户按钮 -->
+<div class="user-menu">
+    <!-- 登录与账户按钮 -->
+    <a href="#" class="user-btn">
+        <span class="sign-in-text">Hello, sign in</span>
+        <span class="account-text">Account</span>
+    </a>
+
+    <!-- 购物车按钮 -->
+    <a href="#" class="cart-btn" onclick="toggleCart()">🛒 Cart</a>
+
+
+    </div>
+</div>
+</header>
+
+
+    <!-- 导航栏区域 -->
+    <div class="nav-bar">
+        <a href="#">首页</a>
+        <a href="#">所有品类</a>
+        <a href="#">智能家居</a>
+        <a href="#">家电</a>
+        <a href="#">健康护理</a>
+        <a href="#">宠物产品</a>
+        <a href="#">运动与户外</a>
+        <a href="#">联系我们</a>
+    </div>
+    </header>
+
+<!-- Hero区域 -->
+<section class="hero">
+  <h1 style="font-size: 36px;">探索智能生活，畅享全方位科技体验</h1>
+<p style="font-size: 18px;">无论是智能家居、家电、健康护理，还是宠物照顾、运动健身，我们的产品让您的每一天都充满智慧与便捷。</p>
+
+
+
+    <div class="product-carousel">
+        <div class="product-item">
+            <span class="sale-tag">Sale</span>
+            <div class="content">
+                <img src="images/A.jpg" alt="Product 1">
+                <a href="#" class="product-title">MorphoScan Smart Body Scale</a> <!-- 可点击的标题 -->
+            </div>
+            <div class="price">
+                <p>$99.99</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <div class="content">
+                <img src="https://via.placeholder.com/200" alt="Product 2">
+                <a href="#" class="product-title">MorphoScan Smart Body Scale</a>
+            </div>
+            <div class="price">
+                <p>$89.99</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <div class="content">
+                <img src="https://via.placeholder.com/200" alt="Product 3">
+                <a href="#" class="product-title">MorphoScan Smart Body Scale</a>
+            </div>
+            <div class="price">
+                <p>$120.00</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <span class="sale-tag">Sale</span>
+            <div class="content">
+                <img src="https://via.placeholder.com/200" alt="Product 4">
+                <a href="#" class="product-title">MorphoScan Smart Body Scale</a>
+            </div>
+            <div class="price">
+                <p>$150.50</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <div class="content">
+                <img src="https://via.placeholder.com/200" alt="Product 5">
+                <a href="#" class="product-title">MorphoScan Smart Body Scale</a>
+            </div>
+            <div class="price">
+                <p>$79.99</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- 白色容器框 -->
+    <div class="container-boxes">
+        <div class="container-box">
+            <h3>智能家居</h3>
+            <p>让您的家更加智能，安全和舒适。</p>
+        </div>
+        <div class="container-box">
+            <h3>健康护理</h3>
+            <p>提供最前沿的健康管理和护理设备。</p>
+        </div>
+        <div class="container-box">
+            <h3>运动健身</h3>
+            <p>智能化运动设备，助您健身更高效。</p>
+        </div>
+        <div class="container-box">
+            <h3>宠物照顾</h3>
+            <p>为您的宠物提供最贴心的照护方案。</p>
+        </div>
+    </div>
+
+    <!-- CTA按钮 -->
+    <button class="cta-btn" onclick="window.location.href='#'">立即探索</button>
+</section>
+
+     <!-- 产品类别 --> 
+  
+    <div class="categories">
+        <div class="category">
+            <img src="smart-home-icon.png" alt="智能家居">
+            <h4>智能家居</h4>
+            <p>智能音响、智能门锁、智能照明等</p>
+        </div>
+
+
+        <div class="category">
+            <img src="home-appliance-icon.png" alt="家电">
+            <h4>家电</h4>
+            <p>智能冰箱、智能洗衣机等</p>
+        </div>
+        <div class="category">
+            <img src="health-care-icon.png" alt="健康与个人护理">
+            <h4>健康与个人护理</h4>
+            <p>空气净化器、智能体重秤等</p>
+        </div>
+        <div class="category">
+            <img src="pet-products-icon.png" alt="宠物产品">
+            <h4>宠物产品</h4>
+            <p>智能宠物喂食器、健康监测器等</p>
+        </div>
+        <div class="category">
+            <img src="fitness-icon.png" alt="运动与户外">
+            <h4>运动与户外</h4>
+            <p>智能健身器械、户外露营装备等</p>
+        </div>
+    </div>
+
+    <!-- 产品展示 -->
+    <div class="product-list">
+         <div class="product"> 
+            <img src="smart-speaker1.jpg" alt="智能音响1">
+            <h3>Apple HomePod</h3>
+            <p>让你的家充满音乐与智能</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <button id="checkout-button" class="btn">去结账</button> 
+    </div>
+
+        <div class="product">
+            <img src="smart-speaker2.jpg" alt="智能音响2">
+            <h3>Sonos One</h3>
+            <p>无缝连接，极致音质</p>
+            <div class="rating">⭐⭐⭐⭐</div>
+            <button class="cta">添加到购物车</button>
+        </div>
+        <div class="product">
+            <img src="smart-speaker3.jpg" alt="智能音响3">
+            <h3>Samsung Galaxy Home</h3>
+            <p>智能家居的完美伙伴</p>
+            <div class="rating">⭐⭐⭐⭐</div>
+            <button class="cta">添加到购物车</button>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2025 智能家居商城 | 联系我们: support@home.com</p>
+    </footer>
+
+    <noscript><a href="https://www.livechat.com/chat-with/19180861/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+
+    <!-- JavaScript 文件 (内联JS) -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <script>
+
+         // 使用你的 Stripe 公钥初始化 Stripe 实例
+        const stripe = Stripe('pk_test_51RVs3m2MBEOllDDEfBkC0wDhNbtnd4DLM7okdYLtyGSsT1cBS2FEQQ3pEMLwkZ8V48tzLiGDNqwNabM0aYGozxtb001yyXi8Q9');  // 替换成你的公钥
+
+        document.getElementById("checkout-button").addEventListener("click", function () {
+            // 调用后端创建 Stripe Checkout 会话的 API
+            fetch("/.netlify/functions/create-checkout-session", {
+                method: "POST"
+            })
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(function (session) {
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(function (result) {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(function (error) {
+                console.error("Error during checkout: ", error);
+                alert("结账过程出现错误，请稍后再试。");
+            });
+        });
+
+        // 搜索功能
+        function searchProducts() {
+            var searchQuery = document.getElementById("searchInput").value.trim();
+            if (searchQuery) {
+                alert("您搜索的商品是: " + searchQuery);
+            } else {
+                alert("请输入搜索内容");
+            }
+        }
+
+
+function getLocation() {
+    const cityEl = document.getElementById('city-name');
+    const countryEl = document.getElementById('update-location');
+
+    fetch('https://ipinfo.io/json')
+        .then(response => response.json())
+        .then(data => {
+            const city = data.city || '';
+            const countryCode = data.country || '未知';
+
+            fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`)
+                .then(res => res.json())
+                .then(countryData => {
+                    const country = countryData[0]?.name?.common || countryCode;
+
+                    cityEl.textContent = city; // 
+                    countryEl.textContent = country;
+                    countryEl.style.display = 'inline';
+                })
+                .catch(error => {
+                    console.error('Error fetching country name:', error);
+                    cityEl.textContent = '';
+                    countryEl.textContent = '无法获取位置';
+                    countryEl.style.display = 'inline';
+                });
+        })
+        .catch(error => {
+            console.error('Error fetching location data:', error);
+            cityEl.textContent = '';
+            countryEl.textContent = '无法获取位置';
+            countryEl.style.display = 'inline';
+        });
+}
+
+document.addEventListener('DOMContentLoaded', getLocation);
+
+
+    // 切换下拉菜单显示状态
+    document.querySelector('.lang-selector').addEventListener('click', function (e) {
+        e.stopPropagation(); // 防止冒泡
+        this.classList.toggle('open');
+    });
+
+    // 点击页面其他区域时关闭菜单
+    document.addEventListener('click', function () {
+        document.querySelector('.lang-selector').classList.remove('open');
+    });
+
+    // 切换语言（示例函数）
+    function setLanguage(langCode) {
+        const displayMap = {
+            zh: '中文',
+            en: 'EN',
+            fa: 'فارسی',
+            es: 'ES'
+        };
+        document.querySelector('.lang-toggle span').innerText = displayMap[langCode] || langCode;
+        document.querySelector('.lang-selector').classList.remove('open');
+
+        // 你可以在这里加入真正的语言切换逻辑
+        console.log("语言切换为：" + langCode);
+    }
+
+      // 切换购物车下拉菜单显示
+    function toggleCart() {
+        var cartDropdown = document.getElementById('cart-dropdown');
+        if (cartDropdown.style.display === "block") {
+            cartDropdown.style.display = "none";
+        } else {
+            cartDropdown.style.display = "block";
+        }
+
+    } 
+// JavaScript 控制下拉框的展开与收起
+document.getElementById('categorySelect').addEventListener('click', function() {
+    var dropdown = this.closest('.dropdown');
+    dropdown.classList.toggle('open');
+});
+
+// 点击下拉项时，更新按钮文本并关闭菜单
+document.querySelectorAll('.dropdown-menu li').forEach(function(item) {
+    item.addEventListener('click', function() {
+        var value = this.getAttribute('data-value');
+        var text = this.innerText;
+        document.getElementById('categorySelect').innerHTML = text + ' <i class="fas fa-chevron-down"></i>';
+        document.querySelector('.dropdown').classList.remove('open');
+    });
+});
+
+// 点击外部区域时，收起下拉菜单
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.dropdown')) {
+        document.querySelector('.dropdown').classList.remove('open');
+    }
+});
+
+  <!-- Start of LiveChat (www.livechat.com) code -->
+
+    window.__lc = window.__lc || {};
+    window.__lc.license = 19180861;
+    window.__lc.integration_name = "manual_onboarding";
+    window.__lc.product_name = "livechat";
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+
+
+
+</script>
+
+</body>
+
+
+
+</html>
+
