@@ -595,9 +595,9 @@
     margin-left: 20px;
     margin-right: 20px;
     z-index: 2;
-    margin-top: 130px; /* 增加上方的间距，这里改成你需要的值 */
+    margin-top: 30px; /* 增加上方的间距，这里改成你需要的值 */
     align-items: center; /* 垂直居中 */
-}
+}  
 
 /* 每个容器框的样式 */
 .container-box {
@@ -800,9 +800,8 @@
          /* 响应式设计：针对小屏幕设备 */
     @media (max-width: 768px) {
 
-
-        .login-btn, .cart-btn {
-        transform: scale(0.5);  /* 缩小 50% */
+       .user-btn, .cart-btn {
+        transform: scale(0.7);  /* 缩小 70% */
         transform-origin: center; /* 确保从中心缩小 */
         padding: 5px 10px;  /* 可以适当减少 padding */
     }
@@ -813,9 +812,11 @@
 
  
     }
-         .hero img {
-        width: 100%; /* 在手机端确保图片宽度为 100% */
-        height: auto; /* 自动调整高度 */
+       .hero {
+        background-size: contain; /* 确保背景图完整显示，避免裁剪 */
+        background-position: center center; /* 确保背景图居中 */
+        height: auto; /* 在手机端可能需要调整高度 */
+    
     }
         .header-top {
             flex-direction: column;
