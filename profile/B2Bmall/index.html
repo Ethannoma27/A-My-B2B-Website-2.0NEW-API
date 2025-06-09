@@ -797,6 +797,105 @@
             background-color: #45a049;
         }
 
+         /* 响应式设计：针对小屏幕设备 */
+    @media (max-width: 768px) {
+        /* 调整LOGO、定位和搜索框 */
+        .header-top {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px 15px;
+        }
+
+        .logo a {
+            font-size: 24px;
+        }
+
+        .search-bar {
+            margin-left: 0;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .search-box {
+            max-width: 100%;
+        }
+
+        /* 栅格布局：产品类别和列表 */
+        .categories {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .category {
+            padding: 15px;
+        }
+
+        .product-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .container-boxes {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container-box {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .hero {
+            height: 60vh;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            margin-top: 50px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            font-size: 16px;
+            padding: 12px 30px;
+        }
+
+        /* 页面底部 */
+        footer {
+            padding: 20px 10px;
+        }
+    }
+
+    /* 响应式设计：对于小屏手机 */
+    @media (max-width: 480px) {
+        /* 调整字体大小 */
+        .hero h1 {
+            font-size: 24px;
+        }
+
+        .hero p {
+            font-size: 14px;
+        }
+
+        .cta-btn {
+            font-size: 14px;
+            padding: 10px 25px;
+        }
+
+        /* 移动端的按钮和容器缩小 */
+        .container-box {
+            width: 100%;
+            padding: 15px;
+            box-shadow: none;
+        }
+
+        .product {
+            padding: 10px;
+        }
+    }
+
 </style>
 
 </head>
@@ -1006,18 +1105,7 @@
     <script src="https://js.stripe.com/v3/"></script>
     
     <script>
-              //  动态加载手机端 HTML 
-
-        if (window.innerWidth <= 768) {
-            // 使用 fetch API 动态加载手机端 HTML
-            fetch('mobile.html')
-                .then(response => response.text())
-                .then(html => {
-                    // 直接将手机端 HTML 插入到 body 中
-                    document.body.innerHTML += html;
-                })
-                .catch(err => console.error('加载手机端 HTML 失败:', err));
-        }
+ 
          // 使用你的 Stripe 公钥初始化 Stripe 实例
         const stripe = Stripe('pk_test_51RVs3m2MBEOllDDEfBkC0wDhNbtnd4DLM7okdYLtyGSsT1cBS2FEQQ3pEMLwkZ8V48tzLiGDNqwNabM0aYGozxtb001yyXi8Q9');  // 替换成你的公钥
 
