@@ -799,7 +799,19 @@
 
          /* 响应式设计：针对小屏幕设备 */
     @media (max-width: 768px) {
+
+
+        .login-btn, .cart-btn {
+        transform: scale(0.5);  /* 缩小 50% */
+        transform-origin: center; /* 确保从中心缩小 */
+        padding: 5px 10px;  /* 可以适当减少 padding */
+    }
         /* 调整LOGO、定位和搜索框 */
+
+       header, .nav-bar {
+        display: none; /* 隐藏页眉和导航栏 */
+    }
+
         .header-top {
             flex-direction: column;
             align-items: flex-start;
