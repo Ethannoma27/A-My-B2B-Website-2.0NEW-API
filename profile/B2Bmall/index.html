@@ -470,20 +470,85 @@
         color: #ff9900;
     }
 
-    
+
+
 /* Hero区域 */
 .hero {
-    background: url('images/HiGift.jpg') no-repeat center center;
-    background-size: cover;  /* 确保背景图覆盖整个区域 */
-    background-blend-mode: overlay; /* 使背景图片与灰色背景融合 */
+    position: relative;
+    background: url('images/Freedom.png') no-repeat center center;
+    background-size: cover;         /* 背景图覆盖整个区域 */
+    height: 100vh;                  /* 设置为视口高度 */
     color: white;
-    padding: 80px 0;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    position: relative; /* 保证后续的绝对定位元素与之对齐 */
+    display: flex;                  /* 使用flexbox布局 */ 
+
+    padding: 0 20px;                /* 适当的左右内边距 */
+    box-sizing: border-box;
+    overflow: hidden;               /* 防止溢出 */
 }
 
-/* 渐变效果 */
+/* 左侧内容区域 */
+.hero-content {
+    display: flex;                    /* 使用flexbox布局 */
+    flex-direction: column;           /* 垂直排列内容 */
+
+    align-items: flex-start;          /* 左对齐 */
+    max-width: 50%;                    /* 限制内容区域的最大宽度为屏幕的左半部分 */
+    height: 100%;                      /* 使内容区域的高度占满父容器 */
+    padding: 0 100px;                  /* 左右内边距 */
+    color: white;
+    word-wrap: break-word;            /* 允许文字换行 */
+    line-height: 1.6;                 /* 行间距 */
+
+}
+
+
+/* Hero标题 */
+.hero h1 {
+    font-size: 36px;
+    line-height: 1.4;
+     margin-top: 100px;    /* 增加这个值来调整大字的下移 */
+    margin-bottom: 50px;
+    word-wrap: break-word;      /* 允许文字换行 */
+    max-width: 80%;             /* 限制最大宽度 */
+}
+
+/* Hero段落 */
+.hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    word-wrap: break-word;      /* 允许文字换行 */
+    max-width: 80%;             /* 限制最大宽度 */
+}
+
+/* CTA按钮 */
+.cta-btn {
+    background-color: #ff9900;   /* 按钮的背景色 */
+    color: white;                 /* 按钮的文字颜色 */
+    padding: 15px 40px;           /* 按钮的内边距 */
+    border-radius: 50px;          /* 按钮圆角 */
+    font-size: 18px;              /* 按钮文字的大小 */
+    cursor: pointer;             /* 鼠标悬停时显示为可点击 */
+    transition: background-color 0.3s ease; /* 背景色的渐变过渡效果 */
+    text-align: center;           /* 文字居中对齐 */
+    display: inline-block;        /* 按钮的显示方式为行内块级元素 */
+    text-decoration: none;        /* 移除默认的超链接下划线 */
+    position: relative;           /* 保证按钮不会被其他元素遮挡 */
+    z-index: 100;                 /* 确保按钮位于上层 */
+    transform: translateX(-100px);  /* 向左平移 100px */
+}
+
+.cta-btn:hover {
+    background-color: #e68a00 !important; /* 悬停时按钮背景颜色的变化 */
+}
+
+/* 其他样式 */
+.cta-container {
+    text-align: center;  /* 使按钮居中 */
+}
+
+
+/* Hero区域渐变效果 */
 .hero::after {
     content: '';
     position: absolute;
@@ -491,16 +556,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(128, 128, 128, 0), rgba(128, 128, 128, 0.6)); /* 透明到灰色渐变 */
-    z-index: 1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)); /* 渐变效果增强可读性 */
+    z-index: 1; /* 确保渐变位于背景图和文字下方 */
 }
 
-/* Hero文本层级 */
-.hero h1,
-.hero p {
-    position: relative;
-    z-index: 2;
-}
 
 /* 修改下拉框背景为灰色 */
 #categorySelect {
@@ -576,23 +635,6 @@
     font-size: 16px;
     color: #666;
     line-height: 1.5; /* 使文字更易于阅读 */
-}
-
-/* CTA按钮 */
-.cta-btn {
-    background-color: #ff9900;
-    color: white;
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 40px;
-    z-index: 2;
-}
-
-.cta-btn:hover {
-    background-color: #e68a00;
 }
 
 
@@ -858,8 +900,20 @@
 
 <!-- Hero区域 -->
 <section class="hero">
-  <h1 style="font-size: 36px;">探索智能生活，畅享全方位科技体验</h1>
-<p style="font-size: 18px;">无论是智能家居、家电、健康护理，还是宠物照顾、运动健身，我们的产品让您的每一天都充满智慧与便捷。</p>
+  <div class="hero-text">
+    <h1>探索智能生活，畅享全方位科技体验</h1>
+    <p>无论是智能家居、家电、健康护理，还是宠物照顾、运动健身，我们的产品让您的每一天都充满智慧与便捷。</p>
+
+<!-- CTA按钮 -->
+
+        <!-- 使用 div 容器包裹按钮 -->
+        <div class="cta-container">
+            <a href="https://www.example.com" class="cta-btn" id="cta-button">立即探索</a>
+        </div>
+    </div>
+</section> 
+
+
 
     <!-- 白色容器框 -->
     <div class="container-boxes">
@@ -881,9 +935,7 @@
         </div>
     </div>
 
-    <!-- CTA按钮 -->
-    <button class="cta-btn" onclick="window.location.href='#'">立即探索</button>
-</section>
+
 
      <!-- 产品类别 --> 
   
@@ -954,7 +1006,18 @@
     <script src="https://js.stripe.com/v3/"></script>
     
     <script>
+              //  动态加载手机端 HTML 
 
+        if (window.innerWidth <= 768) {
+            // 使用 fetch API 动态加载手机端 HTML
+            fetch('mobile.html')
+                .then(response => response.text())
+                .then(html => {
+                    // 直接将手机端 HTML 插入到 body 中
+                    document.body.innerHTML += html;
+                })
+                .catch(err => console.error('加载手机端 HTML 失败:', err));
+        }
          // 使用你的 Stripe 公钥初始化 Stripe 实例
         const stripe = Stripe('pk_test_51RVs3m2MBEOllDDEfBkC0wDhNbtnd4DLM7okdYLtyGSsT1cBS2FEQQ3pEMLwkZ8V48tzLiGDNqwNabM0aYGozxtb001yyXi8Q9');  // 替换成你的公钥
 
