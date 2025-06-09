@@ -475,8 +475,9 @@
 .hero {
     position: relative;
     background: url('images/Freedom.png') no-repeat center center;
-    background-size: cover;         /* 背景图覆盖整个区域 */
-    height: 100vh;                  /* 设置为视口高度 */
+    background-size: contain;  /* 继续使用 contain，保证完整显示 */
+    background-position: top center; /* 将背景图对齐顶部 */
+    height: 80vh;                  /* 设置为视口高度 */
     color: white;
     display: flex;                  /* 使用flexbox布局 */ 
 
