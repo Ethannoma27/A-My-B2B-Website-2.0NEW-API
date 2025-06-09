@@ -801,9 +801,10 @@
     @media (max-width: 768px) {
 
        .user-btn, .cart-btn {
+        margin-right: 10px; /* 设置按钮之间的间距 */
         transform: scale(0.7);  /* 缩小 70% */
         transform-origin: center; /* 确保从中心缩小 */
-        padding: 5px 10px;  /* 可以适当减少 padding */
+        padding: 5px 10px;  /* 适当减少 padding */
     }
         /* 调整LOGO、定位和搜索框 */
 
@@ -813,11 +814,12 @@
  
     }
        .hero {
-        background-size: contain; /* 确保背景图完整显示，避免裁剪 */
-        background-position: center center; /* 确保背景图居中 */
-        height: auto; /* 在手机端可能需要调整高度 */
-    
+        background: url('images/mobile.png') no-repeat center center;  /* 新的背景图 */
+        background-size: cover;  /* 保证图片覆盖整个区域 */
+        height: auto;  /* 让高度根据内容自适应 */
     }
+
+
         .header-top {
             flex-direction: column;
             align-items: flex-start;
