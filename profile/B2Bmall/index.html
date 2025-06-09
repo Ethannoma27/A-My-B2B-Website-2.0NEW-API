@@ -800,15 +800,17 @@
          /* 响应式设计：针对小屏幕设备 */
     @media (max-width: 768px) {
 
-       .user-btn, .cart-btn {
+       .user-btn {
+        margin: 0;  /* 清除默认的 margin */
+        transform: scale(0.7) translateX(15px);  /* 缩小并向右移动 15px */
+        padding: 4px 8px;  /* 调整按钮内边距 */
+    }
 
-        /* 右移按钮 */
-        transform: scale(0.7) translateX(20px);  /* 缩小并右移20px */
-        transform-origin: center; /* 确保从中心缩小 */
-
-        padding: 2px 8px;   /* 可适当调整 padding */
-        margin-left: 3px;  /* 更小的左间距 */
-        margin-right: 0;  /* 取消右边的间距 */ 
+    .cart-btn {
+        margin: 0;  /* 清除默认的 margin */
+        margin-right: 2px;  /* 如果需要，可以继续调整两个按钮之间的间距 */
+        transform: scale(0.7);  /* 缩小按钮 */
+        padding: 4px 8px;  /* 调整按钮内边距 */
     }
         /* 调整LOGO、定位和搜索框 */
 
