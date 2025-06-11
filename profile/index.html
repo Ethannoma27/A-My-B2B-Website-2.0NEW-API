@@ -387,7 +387,7 @@ header {
 
 /* 使得第三张图片宽度是前两张的两倍 */
 .image-wide {
-    max-width: 680px; /* 两张图片的宽度 */
+    max-width: 800px; /* 两张图片的宽度 */
 }
 
  /* 插图样式 */
@@ -404,6 +404,8 @@ header {
             gap: 10px;
             margin-bottom: 20px;
         }
+
+
 
         /* 打印样式 */ 
 
@@ -550,10 +552,13 @@ header {
 } 
      /* 打印版样式 */
 @media print {
+
+
     body {
         background-color: #fff; /* 打印时背景为白色 */
         margin: 0;
         padding: 0;
+         transform: translateX(-5px);
     }
 
     header {
@@ -599,23 +604,21 @@ header {
         page-break-before: always; /* 确保图片部分在新的一页上 */
     }
 
-        /* 保证最后两个并排的图片位置调整 */
-    .images-container {
-        display: flex;
-        justify-content: space-between; /* 保证并排 */
-        gap: 20px; /* 调整图片间距 */
-    }
 
     .image {
-        width: 48%; /* 调整图片宽度 */
-        max-width: 530px; /* 保证不会超过A4纸宽度 */
+        width: 50%; /* 调整图片宽度 */
+        max-width: 680px; /* 保证不会超过A4纸宽度 */
     }
+
 
     /* 调整最后一对图片确保它们不会被推到新的一页 */
     .images-container img {
         page-break-inside: avoid; /* 避免图片被拆分 */
+            max-width: 880px; /* 保证不会超过A4纸宽度 */
     }
 }
+
+
 
 
     </style>
@@ -750,7 +753,7 @@ header {
     
     <div class="advantage-item">
   <h3>📊 数据意识</h3>
-  <p>注重数据反馈，能基于用户行为持续优化产品路径与转化流程</p>
+  <p>注重数据反馈，基于用户行为持续优化产品路径与转化流程</p>
 </div>
 
     <div class="advantage-item">
@@ -825,7 +828,7 @@ header {
     </ul>
 
     <p class="highlight">
-      🟦 这让你在技术人中少有地具备“站在老板角度实现商业价值”的视角，而不是仅仅完成开发任务。 
+      🟦 这让你在技术人中少有地具备“站在老板角度实现商业价值”的视角，而不仅仅完成开发任务 
     </p>
 
  
@@ -867,25 +870,27 @@ header {
     </h2> 
 
 
-            <div class="images-container">
-                <img src="images/星等级.png" alt="图片1" class="image">
-                <img src="images/证书.png" alt="图片2" class="image">
-            </div>
+       <!-- 星等级和证书图片 -->
+<div class="images-container">
+  <img src="images/星等级.png" alt="图片1" class="image">
+  <img src="images/证书.png" alt="图片2" class="image">
+</div>
 
+<!-- 网站展示图片：加上 site-image 类 -->
+ <h2 class="section-title">
+        网站展示  <a href="https://www.B2B.com" target="_blank">B2B.com</a> 
 
-    <h2 class="section-title">
-        网站展示 <a href="https://www.HawinB2B.com" target="_blank">HawinB2B.com</a>
-    </h2>
-    <div class="images-container">
-        <img src="images/网站展示.png" alt="网站展示" class="image image-wide">
-    </div>
+<div class="images-container">
+  <img src="images/网站展示.png" alt="网站展示" class="image"> 
+</div> 
+
 </section> 
 
 
         <!-- 页脚 -->
         <footer class="footer">
 
-            <p>© 2025 HawinB2B. All Rights Reserved.</p>
+            <h3>© 2025 HawinB2B. All Rights Reserved.</h3>
         </footer> 
 
     </div>
