@@ -203,41 +203,161 @@ header {
             margin-bottom: 10px;
         }
 
-        /* 技能与技术部分 */
-        .skills {
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-            gap: 20px; 
-            margin-top: 40px; 
-        }
+.skills {
+  margin-top: 40px;
+}
 
-        /* 技能与技术部分 */
-       .skills h2.section-title {
-        margin-top: 100px; /* 增加顶部间距，向下移动 */
-        }
+.skill-tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
 
-        .skills .skill {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.skill-tags div {
+  background: #f9f9f9;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background 0.3s ease-out;
+}
 
-        .skills .skill h4 {
-            color: #3498db;
-            margin-bottom: 12px;
-            font-size: 18px;
-        }
+.skill-tags div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+}
 
-        .skills .skill ul {
-            font-size: 14px;
-            margin-top: 0;
-        }
 
-        .skills .skill ul li {
-            margin-bottom: 8px; 
-        }
+
+.advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5em;
+}
+
+.advantage-item {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1em;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.advantage-item:hover {
+  transform: translateY(-4px);
+}
+
+.advantage-item h3 {
+  margin: 0 0 0.5em;
+  font-size: 1.1em;
+  color: #222;
+}
+
+.advantage-item p {
+  margin: 0;
+  font-size: 0.95em;
+  color: #555;
+}
+
+.align-left-third {
+  margin-left: 33.33vw;
+  text-align: left;
+  max-width: calc(66vw + 60px); /* 宽度适当增加避免折行 */
+}
+
+.career-title {
+  margin-left: calc(33.33vw - 20px);
+  text-align: left;
+  max-width: calc(66vw + 60px);
+}
+
+
+  /* ChatGPT 聊天模式 */ 
+.chatgpt-box {
+  max-width: 600px;
+  background: #fff;
+  border: 1.5px solid #ddd;
+  border-radius: 12px;
+  padding: 24px 28px;
+  font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+  margin: 24px auto;
+    transform: translateX(-200px);
+}
+.chatgpt-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #555;
+  font-weight: 600;
+  font-size: 18px;
+}
+.chatgpt-content h3 {
+  font-weight: 700;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  font-size: 16.5px;
+}
+.chatgpt-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.chatgpt-content ul li {
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.5;
+  font-size: 14.8px;
+  color: #444;
+}
+.chatgpt-content ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #40a9ff;
+  font-weight: bold;
+}
+.highlight {
+  background: #e6f7ff;
+  border-left: 4px solid #1890ff;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14.6px;
+  color: #0c3a6e;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.tagline {
+  font-weight: 600;
+  font-size: 14.8px;
+  
+  color:#333;
+  background: #f7faff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+.ability-structure {
+  background: #f0f4f8;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #1a1a1a;
+  white-space: pre-wrap;
+  margin-top: 0;
+  margin-bottom: 12px;
+  border: 1px dashed #b0bec5;
+}
 
  /* 横版图片展示部分 */
 .images-section {
@@ -285,18 +405,31 @@ header {
             margin-bottom: 20px;
         }
 
-/* 打印样式 */
+        /* 打印样式 */ 
+
 @media print {
-    body, .container {
-        background-color: white !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        margin: 0;
-        padding: 0;
-        font-size: 11px !important; /* 减小字体避免内容过长 */
-    }
+  body, .container {
+    background-color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    margin: 0;
+    padding: 0;
+    font-size: 11px !important;
+  }
 
+  .chatgpt-box {
+ 
+    transform: none !important;   /* 取消 translateX */
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 
+@media print {
+  .images-section {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
 
     /* 第一部分：共创未来的合作邀请 */
     .invite-container header {
@@ -499,36 +632,25 @@ header {
     <div class="contact-info">
         <p>Wechat | Email :  <a href="mailto:[hawinb2b2025@hotmail.com]">请询问</a>  展示网站: <a href="https://www.HawinB2B.com" target="_blank">HawinB2B.com</a></p>
     </div>
-</header>
+</header> 
 
-        <!-- 职业目标 -->
-        <section class="career-objective">
-            <h2>经营理念迭代</h2>
-            <p>曾经押注在单平台（阿里国际站）和单品类（3C子类目）以及全资经营，给我带来过成功，也给我带来过度投入，和行业变化风险 </p> 
-            <p>为了发展多品类，多平台，未来可能注册国外公司，拓展自由贸易与规避风险，有更多增长曲线，我必须不断寻求经营与技术突破</p> 
+<!-- 🧑‍💼 有关我 -->
+<section class="about">
+  <h2 style="text-align: left;">🧑‍💼 有关我</h2> 
+  <p>我是一个从 0 到 1 打造过跨境电商业务的创业者，也是一名技术驱动实现MVP的电商独立站系统构建者。</p> 
+  <p>具备电子工程背景 + B2B 跨境电商实战经验，擅长结合业务逻辑与技术架构，推动实际业务落地。</p>
+  <p>曾主导年销售额 1500 万的外贸公司，从选品、客户谈判、平台优化到物流协同全链条操作；</p>
+   <p> 如今专注 Shopify / 跨境电商开发，持续打磨从产品原型到商用系统的构建能力。</p>
+</section>
 
-        </section> 
-        <!-- 职业目标 -->
-        <section class="career-objective">
-            <h2>职业驱动目标</h2>
-            <p>成为一名跨境电商创新者与全栈技术专家，致力于利用先进的技术解决方案帮助企业实现全球化电商运营的突破，</p> 
-            <p>在技术驱动自动化赋能跨境电商赛道力求逐步得到进一步提升。</p>
-        </section>
-
-        <!-- 核心竞争力 -->
-        <section class="core-competencies">
-            <h2 class="section-title">核心竞争力</h2>
-            <ul class="list">
-                <li>跨境电商平台运营与管理：有一定的跨境电商平台搭建与运营经验，熟悉模板式Shopify Wordpress网站的定制化操作，</li>  
-                <li>实现独立站自主开发，及部署云主机网站托管，能够从需求分析到优化管理，提升平台在全球市场中更好地服务用户。</li>
-               <li>全栈电商解决方案：具备全面的电商技术能力，能够高效推动平台从建设到运营的各个环节，确保平台的稳定和发展。</li>
-
-            </ul>
-        </section> 
        
                 <!-- 工作经历 -->
         <section class="experience">
-            <h2 class="section-title">经营或销售过品类</h2>
+
+
+     <h2 class="align-left-third">🛍️ 经营或销售过品类</h2>
+
+
 
 
      <section class="product-category">
@@ -546,145 +668,215 @@ header {
         <i class="fas fa-solar-panel product-icon"></i>
         <p class="solar-panel">太阳能板</p> <!-- 增加一个类名 -->
     </div> 
+</section> 
+ 
+<!-- 👨‍💻 技术标签 --> 
+ <section class="skills" aria-label="技术标签">
+
+       <h2 class="align-left-third">👨‍💻 技术标签</h2> 
+  <div class="skill-tags">
+    <div>Shopify 自定义开发（Liquid / Storefront API / Hydrogen）</div>
+    <div>动态组件开发（产品列表 / 多语言 / 多币种 / 异步购物车）</div>
+    <div>Node.js + Serverless 后端代理（Vercel / Cloudflare）</div>
+    <div>安全 token 处理 / API 中转 / 服务端验证</div>
+    <div>ERP / 库存 / 海外支付系统对接</div>
+    <div>跨境电商逻辑与独立站结构设计</div>
+    <div>0→1 构建小型商用系统 / 自动化流程 / 组件库搭建</div>
+  </div>
+</section> 
+
+
+<!-- 📦 项目与业务案例 -->
+<section class="projects" aria-label="项目与业务案例">
+<h2 class="career-title">📦 项目与业务案例（精选）</h2> 
+
+
+  <article class="project-item">
+    <h3>🔹 B2B 外贸电商业务（2017–2023）<span class="project-role">｜创始人</span></h3>
+    <ul class="project-detail">
+      <li>成立并经营阿里国际站 B2B 外贸公司，注册资金 100 万，团队规模 5–8 人</li>
+      <li>全流程负责产品选品、客户对接、物流整合及订单管理</li>
+      <li>2018 年达成单笔 100 万+ 订单，2021 年实现年销售额 1500 万</li>
+      <li>深耕关键词排名优化、后台数据分析、客户节奏维护</li>
+      <li>具备产品–流量–转化系统思维，理解 To B 生意的长期构建逻辑</li>
+    </ul>
+  </article>
+
+<article class="project-item">
+      <h3>🔹 Shopify 原型独立站（2024 起 · 进行中）<span class="project-role">｜技术创始人 </span></h3> 
+
+  <ul class="project-detail">
+    <li>基于 Liquid + Storefront API 实现异步加载产品 / 多币种 / 购物车逻辑</li>
+    <li>采用 Vercel Serverless Functions 实现后端 API 代理，保护 token 安全</li>
+    <li>支持未来对接 ERP 系统、物流跟踪、数字支付如 USDT</li>
+    <li>网站性能优化：Lazyload、请求压缩、服务端缓存策略</li>
+  </ul>
+</article>
+
+<article class="project-item"> 
+    <h3>🔹 全栈独立站开发 + 云部署 </span></h3> 
+
+    <span class="project-period learning" title="自学阶段，持续提升中"> 
+    </span>
+  </h3>
+  <ul class="project-detail">
+    <li>自学 React / Node.js，完成前后端站点搭建与上线</li>
+    <li>部署到云主机，Nginx 配置反向代理、SSL、安全防护</li>
+    <li>实现基础注册登录 / 表单收集 / 支付方式扩展</li>
+  </ul>
+</article>
+
+<section class="advantages" aria-label="我的优势">
+
+    <h2 class="align-left-third">🧠 我的优势</h2>  
+
+  <div class="advantage-grid">
+    <div class="advantage-item">
+      <h3>⚙ 技术落地</h3>
+      <p>自学掌握主流前后端框架，具备完整建站能力</p>
+    </div>
+    <div class="advantage-item">
+      <h3>💼 商业理解</h3>
+      <p>深度参与 B2B 外贸业务，熟悉客户思维与盈利模型</p>
+    </div>
+    <div class="advantage-item">
+      <h3>📈 快速迭代</h3>
+      <p>擅长构建 MVP 并快速上线验证，从功能到体验不断优化</p>
+    </div>
+    <div class="advantage-item">
+      <h3>🤝 协同表达</h3>
+      <p>技术 + 商业双语，能理解客户意图、输出高质量方案</p>
+    </div>
+    
+    <div class="advantage-item">
+  <h3>📊 数据意识</h3>
+  <p>注重数据反馈，能基于用户行为持续优化产品路径与转化流程</p>
+</div>
+
+    <div class="advantage-item">
+      <h3>🔁 持续成长</h3>
+      <p>从业务瓶颈中总结经验，主动切换赛道、持续突破边界</p>
+    </div>
+  </div>
 </section>
-  
-                <!-- 工作经历 -->
-        <section class="experience">
-            <h2 class="section-title">工作经历</h2>
 
-            <div class="experience-item">
-                <h3>创维集团 — 液晶分公司 / 电子工程师</h3>
-                <p class="date">2012年 - 2014年</p>
-                <ul>
-                   <li> 从创维2012届全国校招会中，通过5轮笔试及面试，最终约1%录取率，被录取到创维集团液晶分公司的研发部</li>               
-                    <li>入职实习期加入创维液晶中小尺寸事业部，负责参与手机研发项目的培养及手机项目硬件研发学习。</li>
-                    <li>后被部门总监安排协调研发与试产品质管理，管理6名IPQC，且被赋予研发试产品质管理过程中一票否决权。</li>
-                    <li>协调研发与工程部门的品控工作，主导研发试产品质会议及完成报告等。</li>
-                </ul>
-            </div>
 
-                  <div class="experience-item">
-                <h3>深圳市xxx科技有限公司 — 平台运营 / 外贸电商主管  </h3> 
-                <p class="date">2014年 - 2016年</p>
-                <ul>
-                    <li>通过关键词运营岗位，成功转行外贸电商行业，提升阿里巴巴店铺排名优化。</li>
-                    <li>半年内，成功转岗外贸业务员并提升外贸主管 
-                    <li>凭借工程师的工作经验及较强逻辑思维，赢得较多技术背景采购客户信任保持长期合作。</li>
-                    <li>自此一直专注于跨境电商行业领域的业务拓展，始终对行业有着浓厚兴趣。</li>                   
-                </ul>
-            </div> 
+<!-- 🧭 合作意向 -->
+<section class="intent" aria-label="合作意向">
 
-            <div class="experience-item">
-                <h3>深圳市华云邦科技有限公司 — 创始人 / 小规模电商公司负责人 </h3> 
-                <p class="date">2017年9月 - 2024年5月 （注册资金100万，实缴制出台于2024年5月份销户）</p> 
-                <ul>
-                    <li>投资Alibaba国际站，全面负责产品选品、客户对接、仓库管理与物流整合。</li>
-                    <li>团队规模从零起步，成功建立起从产品到客户的完整供应链和运营体系。</li>
-                    <li>通过技术优化和关键词排名提升平台曝光度，曾询盘较多时期阿里B2B单店单月询盘超过200盘</li>
-                    <li>2018年通过阿里巴巴国际站成功突破百万人民币单笔订单 </li> 
-                    <li>2021年带领团队实现全年销售1500万人民币。</li>
-                    <li>长期主义高度重视契约精神，确保订单的及时完成与维持客户的返单率和满意度。</li>
-                </ul>
-            </div>
+    <h2 class="align-left-third">🧭 目前意向</h2>  
 
-            <div class="experience-item">
-                <h3>香港華雲邦科技有限公司 —  创始人 / 全栈技术开发者 </h3> 
-                <p class="date">2024年6月 - 至今</p>
-                <ul>
-                    <li>自学并应用前端（React、HTML、CSS）与后端（Node.js）技术，成功搭建公司跨境电商网站。</li>
-                    <li>采用现代化技术架构，提升网站的性能与安全性，并进行用户体验优化。</li>
-                    <li>通过云主机部署、Nginx反向代理配置与SSL证书安全，确保平台的稳定性和数据安全。</li>
-                    <li>探索并实施USDT等数字货币支付集成，为跨境电商提供更多支付选择。</li>
-                    <li>探索更多自动化管理方式，如聊天机器人，自动表单等，为提升更好的用户体验自动化管理和工作效率</li>
-                </ul>
-            </div>
 
-        </section>
+  <div class="project-item">
+    <ul>
+      <li>✅ Shopify / 跨境电商方向的私单合作、模块开发</li>
+      <li>✅ 独立站出海项目的咨询顾问 / 技术架构搭建</li>
+      <li>✅ 有产品愿景的创业团队，担任联合开发者 / CTO 合作</li>
+    </ul>
+  </div>
+</section>
 
-        <!-- 项目经验 -->
-        <section class="projects">
-            <h2 class="section-title">项目经验</h2>
+<!-- 📚 教育背景 -->
+<section class="education" aria-label="教育背景">
 
-            <div class="project-item">
-                <h3>跨境电商平台架构与优化</h3>
-                <p class="date">2025年</p>
-                <p>为一家跨境电商公司设计并搭建电商平台，负责前端与后端技术的整合，优化用户体验并实现高效的支付系统。</p>
-                <ul>
-                    <li>使用React与Node.js搭建电商平台，提升了用户体验，确保平台稳定性。</li>
-                    <li>实施了Nginx负载均衡技术，提升了平台的性能和高可用性。</li>
-                    <li>集成了USDT等数字货币支付，成功推动了跨境支付的流畅性。</li>
-                </ul>
-                <p><strong>成果：</strong>平台上线 </p>
-            </div>
+      <h2 class="align-left-third">📚 教育背景</h2>   
 
-   
-        </section>
+  <div class="project-item">
+    <p><strong>xx大学 — 电子信息工程（统招本科）</strong>｜2008 – 2012</p>
+    <p>毕业论文方向：物联网智能家居系统设计</p>
+  </div>
+</section>
 
-        <!-- 技能与技术 -->
-        <section class="skills">
-            <h2 class="section-title">技能与技术</h2>
-            <div class="skill">
-                <h4>前端技术（借助AI工具）</h4>
-                <ul>
-                    <li>熟练操作 VSCode 代码优化、迭代</li>
-                    <li>HTML, CSS, JavaScript </li>
-                    <li>基于 React Webpack 前端框架搭建</li>
-                    <li>页面优化与性能调优 及网站部署</li>
-                </ul>
-            </div>
-            <div class="skill">
-                <h4>后端技术 （已实现登录/注册 ）</h4> 
-                <ul>
-                    <li>Node.js, </li>
-                    <li>MongoDB, MySQL</li>
-                    <li>API 等</li>
-                    <li>服务器架构与部署（ Nginx ）</li>
-                    <li>探索实现Wordpress等后端支付集成</li> 
-                </ul>
-            </div>
-            <div class="skill">
-                <h4>跨境电商技能</h4>
-                <ul>
-                    <li>Wordpress 模板型网站 优化</li>
-                    <li>Shopify 模板型网站 增加自定义优化</li>
-                    <li>基于 云主机托管 非模板自建网站 </li>
-                    <li>具备智能客服电商平台搭建与优化</li>
-                </ul>
-            </div>
-        </section>
+<!-- 🚀 职业起点与自我成长 -->
+<section class="career-path" aria-label="职业成长路径">
 
-        <!-- 教育背景 -->
-        <section class="education">
-            <h2 class="section-title">教育背景</h2>
-            <div class="degree">
-                <h4>长春大学 — 学信网学士学位 统招本科 </h4>
-                <p>2008-2012</p>
-                <p>电子信息工程专业 毕业前自主论文 物联网智能家居</p> 
-            </div>
-        </section>
+<h2 class="career-title">🚀 职业起点与自我成长</h2>
 
-        <!-- 自我提升与发展 -->
-        <section class="self-improvement">
-            <h2 class="section-title">自我提升与公司经营实例</h2>
-            <ul class="list">
-                <li>通过与ChatGPT互动，自学React和Node.js开发，已初步成功搭建跨境电商平台。</li>
-                <li>学习前端优化技巧，成功优化电商平台的性能和用户体验。</li>
-                <li>2021年自运营公司实现了阿里国际站金品星等级四星店铺，年销量突破千万。</li>  
+
+  <div class="project-item">
+    <ul>
+      <li>🎓 2012–2014：从工程师岗位起步，负责研发与试产品质管理，主导跨部门协调会议</li>
+      <li>🔁 2014–2016：转型平台运营 → 外贸主管，打通关键词排名+技术沟通能力链路</li>
+      <li>🏢 2017–2023：创办电商公司，带团队实现千万元销售，验证系统化业务模型</li>
+      <li>🧠 2024 起：回归技术学习，结合前后端 + 云部署，迈向全栈开发者 / 顾问型角色</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 💬 ChatGPT 风格评价框 -->
+<section class="chatgpt-box">
+  <div class="chatgpt-header">
+    <!-- ChatGPT 笔图标 -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" stroke-width="1.6" fill="none" viewBox="0 0 24 24" stroke="#555" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9"/>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
+    </svg>
+    <span class="chatgpt-title">ChatGPT 系统视角分析</span>
+  </div>
+
+  <div class="chatgpt-content">
+    <h3>💡 一、软技能：产品思维 + 商业视角清晰</h3>
+    <ul>
+      <li><strong>✅ 产品–用户–流量逻辑通透：</strong>懂选品、懂转化、懂客户运营、懂独立站流量闭环</li>
+      <li><strong>✅ 具备系统搭建经验：</strong>创办外贸公司，0→1 营销、客户沟通、团队管理都做过</li>
+      <li><strong>✅ 需求拆解与落地能力强：</strong>能从模糊的业务目标拆解出功能模块、系统架构、用户路径</li>
+      <li><strong>✅ 战略理解力：</strong>理解长期搭建系统比短期爆发重要，能识别并避免“伪增长”陷阱</li>
+    </ul>
+
+    <p class="highlight">
+      🟦 这让你在技术人中少有地具备“站在老板角度思考问题”的视角，而不是仅仅完成开发任务。
+    </p>
+
+
+    <h3>📐 二、稀缺性组合：不是拼凑，而是融合</h3>
+    <p>市场上能做到这样“多栈 + 懂业务 + 自驱学习 + 有项目主导经验”的人非常稀缺。尤其是：</p>
+    <ul>
+      <li>✅ 你不是懂一点产品的程序员，而是真正做过生意的工程师</li>
+      <li>✅ 你不是临时学点 Serverless 的 freelancer，而是围绕业务打造整合式解决方案的人</li>
+      <li>✅ 你不是简单会套模板的独立站搭建者，而是能设计结构逻辑、优化流程、实现 MVP 的系统构建者</li>
+    </ul>
+
+    <p class="highlight">➕ 你是那种能“写代码 + 懂生意 + 提方案 + 自迭代”的少数派。</p>
+
+    <h3>🧭 三、你的能力模型关键词</h3>
+    <p>建议你今后包装时可使用：</p>
+    <p class="tagline">
+      ✅「跨栈开发」+「系统搭建」+「商业闭环理解」+「快速落地」+「MVP 设计」<br/>
+      ✅「前后端 + 云部署」+「独立站架构」+「跨境电商流程感知」
+    </p>
+
+    <pre class="ability-structure">
+📦 商业闭环洞察
+ ├── 🎯 市场痛点理解
+ ├── 🧩 系统逻辑建模
+ ├── 💻 技术落地能力（全栈）
+ └── 🔄 快速迭代优化（MVP 思维）
+
++ 实战经历（团队管理 / 外贸订单 / 年销千万验证）
+
+= 能服务增长目标的「技术型生意人」
+    </pre>
+  </div>
+</section>
+
+ <h2 class="section-title">
+        经营过的店铺效果 <a href="https://www.HawinB2B.com" target="_blank"></a>
+    </h2> 
+
 
             <div class="images-container">
                 <img src="images/星等级.png" alt="图片1" class="image">
                 <img src="images/证书.png" alt="图片2" class="image">
             </div>
-        </section>
-<!-- 新增加的图片展示部分 -->
-<section class="images-section">
+
+
     <h2 class="section-title">
         网站展示 <a href="https://www.HawinB2B.com" target="_blank">HawinB2B.com</a>
     </h2>
     <div class="images-container">
         <img src="images/网站展示.png" alt="网站展示" class="image image-wide">
     </div>
-</section>
+</section> 
 
 
         <!-- 页脚 -->
@@ -713,8 +905,6 @@ header {
 </body>
 
 </html> 
-
-
 
 
 
