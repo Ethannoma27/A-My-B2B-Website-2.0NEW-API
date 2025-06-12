@@ -10,15 +10,16 @@
     <!-- 引入 Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style> 
-        /* 全局样式 */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #6D83F2, #3C5A9A);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #333;
-        }
+/* 全局样式 */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6D83F2, #3C5A9A);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
 /* 个人信息区域 */
 header {
     display: flex;
@@ -39,19 +40,20 @@ header {
     border-radius: 15px; /* 设置椭圆形圆角，数值越大角越圆 */
     object-fit: cover; /* 保证图片裁剪时保持比例，避免拉伸 */
 }
-        /* 页面容器 */
-        .container {
-            width: 90%;
-            margin: 50px auto;
-            max-width: 1200px;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
 
-    /* 产品类别展示 */
+/* 页面容器 */
+.container {
+    width: 90%;
+    margin: 50px auto;
+    max-width: 1200px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* 产品类别展示 */
 .product-category {
     display: flex;
     justify-content: space-around; /* 保持均匀间距 */
@@ -67,7 +69,7 @@ header {
 
 /* 图标样式 */
 .product-icon {
-    font-size: 60px; /* 增大图标 */
+    font-size: 50px; /* 增大图标 */
     color: #3498db; /* 原始蓝色 */
     margin-bottom: 15px;
     transition: transform 0.3s ease, color 0.3s ease;
@@ -85,6 +87,7 @@ header {
     font-weight: 600;
     letter-spacing: 2px; /* 增加字母之间的水平间距 */
 }
+
 /* 单独调整“太阳能板”的位置 */
 .solar-panel {
     margin-left: 20px; /* 向右移动 */
@@ -94,184 +97,181 @@ header {
     letter-spacing: 2px;
 }
 
+/* 标题统一样式 */
+h1, h2 {
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 15px;  
+    text-transform: capitalize; 
+}
 
+h1 {
+    font-size: 36px;
+    color: #3498db;
+}
 
-        /* 标题统一样式 */
-        h1, h2 {
-            font-weight: 600;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 15px;  
-            text-transform: capitalize; 
-        }
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
 
-        h1 {
-            font-size: 36px;
-            color: #3498db;
-        }
+/* 个人信息 */
+.contact-info {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 400;
+}
 
-        h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
+.contact-info p {
+    margin-top: 60px;  /* 增加顶部间距，向下移动 */
+}
 
-        /* 个人信息 */
-        .contact-info {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 400;
-        }
-        .contact-info p {
-       margin-top: 60px;  /* 增加顶部间距，向下移动 */
-       }
+.contact-info a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-        .contact-info a {
-            color: #3498db;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+.contact-info a:hover {
+    color: #1abc9c;
+}
 
-        .contact-info a:hover {
-            color: #1abc9c;
-        }
+/* 节标题 .section-title 样式 */
+.section-title {
+    font-size: 24px;  
+    font-weight: 600;
+    color: #3498db;
+    margin-top: 30px;  
+    margin-bottom: 15px;  
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    position: relative;
+    text-align: center;  
+}
 
-        /* 节标题 .section-title 样式 */
-        .section-title {
-            font-size: 24px;  
-            font-weight: 600;
-            color: #3498db;
-            margin-top: 30px;  
-            margin-bottom: 15px;  
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
-            position: relative;
-            text-align: center;  
-        }
+/* 列表样式 */
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
-        /* 列表样式 */
-        .list {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
+.list li {
+    margin: 12px 0;
+    padding: 10px;
+    border-left: 4px solid #3498db;
+    padding-left: 15px;
+    background-color: #f9fafb;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
-        .list li {
-            margin: 12px 0;
-            padding: 10px;
-            border-left: 4px solid #3498db;
-            padding-left: 15px;
-            background-color: #f9fafb;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
+.list li:hover {
+    transform: translateX(10px);
+    background-color: #eaf2f8;
+}
 
-        .list li:hover {
-            transform: translateX(10px);
-            background-color: #eaf2f8;
-        }
+/* 经验部分 */
+.experience-item, .project-item {
+    background: #fff;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        /* 经验部分 */
-        .experience-item, .project-item {
-            background: #fff;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.experience-item:hover, .project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+}
 
-        .experience-item:hover, .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
-        }
+.experience-item h3, .project-item h3 {
+    font-size: 22px;
+    color: #3498db;
+    margin-bottom: 12px;
+}
 
-        .experience-item h3, .project-item h3 {
-            font-size: 22px;
-            color: #3498db;
-            margin-bottom: 12px;
-        }
+.experience-item p, .project-item p {
+    color: #555;
+    line-height: 1.8;
+}
 
-        .experience-item p, .project-item p {
-            color: #555;
-            line-height: 1.8;
-        }
-
-        .experience-item .date, .project-item .date {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 10px;
-        }
+.experience-item .date, .project-item .date {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
 
 .skills {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 .skill-tags {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
 }
 
 .skill-tags div {
-  background: #f9f9f9;
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background 0.3s ease-out;
+    background: #f9f9f9;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background 0.3s ease-out;
 }
 
 .skill-tags div:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  background: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    background: #ffffff;
 }
 
-
-
 .advantage-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5em;
 }
 
 .advantage-item {
-  background: #f9f9f9;
-  border-radius: 8px;
-  padding: 1em;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
 }
 
 .advantage-item:hover {
-  transform: translateY(-4px);
+    transform: translateY(-4px);
 }
 
 .advantage-item h3 {
-  margin: 0 0 0.5em;
-  font-size: 1.1em;
-  color: #222;
+    margin: 0 0 0.5em;
+    font-size: 1.1em;
+    color: #222;
 }
 
 .advantage-item p {
-  margin: 0;
-  font-size: 0.95em;
-  color: #555;
+    margin: 0;
+    font-size: 0.95em;
+    color: #555;
 }
 
 .align-left-third {
-  margin-left: 33.33vw;
-  text-align: left;
-  max-width: calc(66vw + 60px); /* 宽度适当增加避免折行 */
+    margin-left: 33.33vw;
+    text-align: left;
+    max-width: calc(66vw + 60px); /* 宽度适当增加避免折行 */
 }
 
 .career-title {
-  margin-left: calc(33.33vw - 20px);
-  text-align: left;
-  max-width: calc(66vw + 60px);
+    margin-left: calc(33.33vw - 20px);
+    text-align: left;
+    max-width: calc(66vw + 60px);
 }
 
 
@@ -426,55 +426,11 @@ header {
     margin-right: auto !important;
   }
 
-@media print {
-  .images-section {
+    .images-section {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
-}
 
-    /* 第一部分：共创未来的合作邀请 */
-    .invite-container header {
-        background-color: #4b0082;
-        color: #ffd700;
-        padding: 6px 12px !important; /* 减小内边距 */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        text-align: center;
-    }
-
-    .invite-container h1 {
-        font-size: 2em !important; /* 缩小字体 */
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 6px !important; /* 减少标题底部间距 */
-    }
-
-    .invite-container header p {
-        font-size: 1.2em !important;
-        margin-bottom: 4px !important; /* 减少段落底部间距 */
-    }
-
-    /* 天使图标的金色光晕效果 */
-    .angel-icon {
-        font-size: 40px !important; /* 缩小图标 */
-        margin: 10px 0 !important; /* 减少上下间距 */
-        transform: translateX(-200px) !important; /* 适当减少左移距离 */
-    }
-
-    /* 第二部分：我的成长背景 */
-    .background-container {
-        padding: 4mm; /* 缩小整体边距 */
-        page-break-before: avoid !important; /* 防止第二部分分页 */
-        page-break-inside: avoid !important; /* 防止内容分页 */
-    }
-
-    .background-container h2 {
-        font-size: 1.4em !important;
-        margin-bottom: 8px !important;
-    }
 
     /* 设置A4纸大小 */
     @page {
@@ -619,8 +575,6 @@ header {
 }
 
 
-
-
     </style>
 </head>
 <body>
@@ -651,9 +605,7 @@ header {
         <section class="experience">
 
 
-     <h2 class="align-left-third">🛍️ 经营或销售过品类</h2>
-
-
+     <h2 class="align-left-third">🛍️ 经营或销售过品类</h2> 
 
 
      <section class="product-category">
@@ -896,29 +848,12 @@ header {
     </div>
  
 
-  <!-- Start of LiveChat (www.livechat.com) code -->
-<script>
-    window.__lc = window.__lc || {};
-    window.__lc.license = 19180861;
-    window.__lc.integration_name = "manual_onboarding";
-    window.__lc.product_name = "livechat";
-    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
-</script>
-<noscript><a href="https://www.livechat.com/chat-with/19180861/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
-<!-- End of LiveChat code -->
-
-
-</script>
 
 </body>
 
 
 
 </html> 
-
-
-
-
 
 
 
