@@ -78,30 +78,13 @@ nav ul li a:hover {
   overflow: visible; /* 重要：允许子元素的视觉扩展 */
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 10, 15, 0.6);
-  z-index: 1;
-}
-
-.hero-inner {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  z-index: 2;
-  position: relative;
-  width: 100%;
-  color: #fff;
-  gap: 40px;
-}
 
 .hero-text {
   flex: 1;
   background: rgba(255, 255, 255, 0.05);
   padding: 40px;
   border-radius: 20px;
-  backdrop-filter: blur(8px);
+
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
@@ -135,24 +118,38 @@ nav ul li a:hover {
   box-shadow: 0 10px 30px rgba(255, 153, 0, 0.45);
 }
 
-.hero-image {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-image img {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-}
 
 .hero-content a.button:hover {
   background-color: #e28700;
   transform: translateY(-2px);
 }
+
+
+
+
+    .hero-content1 {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      padding: 0 20px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-content1 h1 {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .hero-content1 p {
+      font-size: 22px;
+      opacity: 0.9;
+      margin-bottom: 32px;
+      color: #fff;
+    }
+
 
 @keyframes fadeInUp {
   0% {
@@ -302,22 +299,24 @@ footer a {
     <div class="header-actions">
       <a href="#">Login</a>
       <a href="#">Cart (0)</a>
+
+ <a href="proposal/index.html?openModal=0" class="cta-btn" id="cta-button">MVP Proposal</a>
+
     </div>
   </header>
 
-<section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-inner">
-    <div class="hero-text">
+
+  <section class="hero">
+    <div class="hero-content1">
+
+
+       <div class="hero-text"> 
       <h1>Illuminate Your World</h1>
-      <p>Premium smart lighting designed for comfort, elegance, and efficiency.</p>
-      <a href="#" class="cta-button">Shop Now</a>
-    </div>
-    <div class="hero-image">
+      <p>Experience premium smart lighting solutions tailored for your lifestyle</p>
+      <a href="#" class="cta-button"id="cta-button">Shop Now</a> 
 
     </div>
-  </div>
-</section>
+  </section>
 
 
 

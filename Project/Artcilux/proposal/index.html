@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artcilux Proposal – American Luxury</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #05050a;
+      --color-text: #f5f5f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      height: 130vh;
+      background: url('https://images.unsplash.com/photo-1587502537745-6ec8413d9c3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(35, 45, 105, 0.6);
+      backdrop-filter: blur(3px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100%;
+      text-align: center;
+      padding-top: 60px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      max-width: 800px;
+      color: var(--color-text);
+      text-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    .module-section {
+      padding: 4rem 2rem 8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .module-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      width: 280px;
+      height: 160px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 500;
+      color: var(--color-text);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+
+    .module-card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: scale(1.05);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .modal-content {
+      position: relative;
+      background: var(--color-text);
+      color: #222;
+      border-radius: 20px;
+      padding: 3rem;
+      width: 80%;
+      max-width: 1500px;
+      max-height: 95vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 0.4s ease;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #444;
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+      width: 42px;
+      height: 42px;
+      line-height: 42px;
+      text-align: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .close-btn:hover {
+      background-color: rgba(255, 255, 255, 0.18);
+      color: #222;
+      transform: scale(1.1);
+    }
+
+    .modal-img {
+      display: block;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      margin: 0 auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Crafting American-Luxury<br>Lighting Proposal</h1>
+    </div>
+  </section>
+
+  <section class="module-section">
+    <div class="module-card" data-module="0">项目目标与背景说明</div>
+    <div class="module-card" data-module="1">技术推荐方案</div>
+    <div class="module-card" data-module="2">合作机会</div>
+    <div class="module-card" data-module="3">竞品分析</div>
+    <div class="module-card" data-module="4">智能客服策略</div>
+    <div class="module-card" data-module="5">合作提案</div>
+  </section>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+      <div id="image-carousel" style="margin-top: 2rem;"></div>
+    </div>
+  </div>
+
+  <script>
+    const content = [
+      {
+        title: "项目目标与背景说明",
+        text: "Artcilux（阿特兰斯）是一家专注于智能照明的B2B企业...",
+        images: ["images/Create1.png", "images/Create2.png", "images/Create3.png", "images/Create4.png", "images/Create5.png"]
+      },
+      {
+        title: "为什么推荐这个技术栈组合",
+        text: "自定制(非模板)页面+Shopify API系统+Vercel后端托管...",
+        images: ["images/Engineer1.png", "images/Engineer2.png"]
+      },
+      {
+        title: "合作互补的机会点",
+        text: "可以探索 搭建产品可视化更多功能或自动化系统 B2B & DTC ..",
+        images: ["images/Cooperation1.png", "images/Cooperation2.png"]
+      },
+      {
+        title: "潜在美国市场优质独立站分析",
+        text: "分析 Lumens.com 后获得搭建方案建议...",
+        images: ["images/Compare1.png", "images/Compare2.png"]
+      },
+      {
+        title: "为何慎用智能机器人客服",
+        text: "基于品牌策略考虑，更适合专业沉浸式服务体验...",
+        images: ["images/Robot1.png", "images/Robot2.png"]
+      },
+      {
+        title: "合作意向提案",
+        text: "本提案为 Artcilux 打开美国 DTC 市场提供清晰合作框架...",
+        images: ["images/Proposal1.png", "images/Proposal2.png", "images/Quotation.png"]
+      }
+    ];
+
+    const cards = document.querySelectorAll('.module-card');
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    const modalCarousel = document.getElementById('image-carousel');
+    let currentIndex = 0;
+
+    function openModalFrom(index) {
+      modalBody.innerHTML = '';
+      modalCarousel.innerHTML = '';
+      currentIndex = index;
+      modal.style.display = 'flex';
+      loadNextModule();
+    }
+
+    function loadNextModule() {
+      const module = content[currentIndex];
+
+      const moduleBlock = document.createElement('div');
+      moduleBlock.style.marginBottom = '3rem';
+      moduleBlock.style.padding = '2rem';
+      moduleBlock.style.backgroundColor = '#f9f9f7';
+      moduleBlock.style.borderRadius = '16px';
+      moduleBlock.style.boxShadow = '0 4px 20px rgba(0,0,0,0.04)';
+
+      const hr = document.createElement('hr');
+      hr.style.border = 'none';
+      hr.style.borderTop = '1px solid #e0e0dc';
+      hr.style.margin = '2rem 0';
+
+      const title = document.createElement('h2');
+      title.textContent = module.title;
+      title.style.fontSize = '1.5rem';
+      title.style.marginBottom = '0.75rem';
+      title.style.color = '#222';
+      title.style.fontWeight = '600';
+      title.style.letterSpacing = '0.2px';
+      title.style.lineHeight = '1.4';
+      title.style.fontFamily = 'Inter, Helvetica Neue, sans-serif';
+
+      const text = document.createElement('p');
+      text.textContent = module.text;
+      text.style.marginBottom = '1.5rem';
+      text.style.fontSize = '1rem';
+      text.style.lineHeight = '1.75';
+      text.style.color = '#444';
+      text.style.fontWeight = '400';
+      text.style.fontFamily = 'Inter, Helvetica Neue, sans-serif';
+
+      const imageWrapper = document.createElement('div');
+      imageWrapper.style.display = 'flex';
+      imageWrapper.style.flexDirection = 'column';
+      imageWrapper.style.gap = '1rem';
+
+      module.images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.className = 'modal-img';
+        img.loading = 'lazy';
+        imageWrapper.appendChild(img);
+      });
+
+      if (modalCarousel.children.length > 0) {
+        modalCarousel.appendChild(hr);
+      }
+
+      moduleBlock.appendChild(title);
+      moduleBlock.appendChild(text);
+      moduleBlock.appendChild(imageWrapper);
+      modalCarousel.appendChild(moduleBlock);
+
+      currentIndex = (currentIndex + 1) % content.length;
+      addSentinel();
+    }
+
+    function addSentinel() {
+      const sentinel = document.createElement('div');
+      sentinel.style.height = '1px';
+      modalCarousel.appendChild(sentinel);
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        if (entries[0].isIntersecting) {
+          obs.disconnect();
+          sentinel.remove();
+          loadNextModule();
+        }
+      });
+
+      observer.observe(sentinel);
+    }
+
+    cards.forEach((card, index) => {
+      card.addEventListener('click', () => openModalFrom(index));
+    });
+
+function closeModal() {
+  if (document.referrer) {
+    window.location.href = document.referrer;
+  } else {
+    window.location.href = "https://www.hawinb2b.com/Project/Artcilux/proposal/";
+  }
+}
+
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // ✅ 页面加载后检查是否应打开弹窗
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const index = parseInt(params.get('openModal'));
+      if (!isNaN(index)) openModalFrom(index);
+    });
+  </script>
+
+</body>
+</html>
