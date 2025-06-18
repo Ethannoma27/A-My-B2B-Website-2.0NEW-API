@@ -263,9 +263,9 @@ h2 {
 }
 
 .align-left-third {
-    margin-left: 33.33vw;
-    text-align: left;
-    max-width: calc(66vw + 60px); /* 宽度适当增加避免折行 */
+    margin: 0 auto;              /* 居中 */
+    text-align: center;          /* 文字居中 */
+    max-width: 800px;            /* 可选：限制最大宽度 */
 }
 
 .career-title {
@@ -277,7 +277,7 @@ h2 {
 
   /* ChatGPT 聊天模式 */ 
 .chatgpt-box {
-  max-width: 600px;
+  margin: 0 auto;              /* 居中 */
   background: #fff;
   border: 1.5px solid #ddd;
   border-radius: 12px;
@@ -285,8 +285,8 @@ h2 {
   font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
   box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
-  margin: 24px auto;
-    transform: translateX(-200px);
+
+
 }
 .chatgpt-header {
   display: flex;
@@ -404,6 +404,88 @@ h2 {
             gap: 10px;
             margin-bottom: 20px;
         }
+
+.image-showcase {
+  max-width: 100%;
+  margin: 60px auto;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 0 20px;
+}
+
+.image-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.image-container {
+  max-width: 1500px;
+  aspect-ratio: 5 / 2; /* 等比缩放：1500 / 600 */
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-container2 {
+  max-width: 1500px;
+  aspect-ratio: 25 / 12; /* 对应 1500x720 的宽高比例 */
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+
+.image-container2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.capability-table {
+  width: 70%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.capability-table th,
+.capability-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eaeaea;
+  text-align: left;
+  vertical-align: top;
+}
+
+.capability-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+}
+
+.capability-table tr:last-child td {
+  border-bottom: none;
+}
 
 
 
@@ -573,7 +655,120 @@ h2 {
             max-width: 880px; /* 保证不会超过A4纸宽度 */
     }
 }
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 12px;
+  }
 
+  .image-showcase {
+    page-break-inside: avoid;
+    margin: 20px 0;
+    padding: 0;
+  }
+
+  .image-container,
+  .image-container2 {
+    max-width: 100%;
+    aspect-ratio: auto;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+    margin: 10px 0;
+    page-break-inside: avoid;
+  }
+
+  .image-container img,
+  .image-container2 img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .capability-table {
+    width: 100% !important;
+    box-shadow: none;
+    page-break-inside: avoid;
+    font-size: 12px;
+    margin: 10px 0;
+  }
+
+  .capability-table th,
+  .capability-table td {
+    padding: 6px 10px;
+  }
+
+  .product-category {
+    page-break-inside: avoid;
+    margin-bottom: 10px;
+  }
+
+  .product-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+}
+@media print {
+  .growth-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 12px 0;
+    page-break-inside: avoid;
+  }
+
+  .growth-table th,
+  .growth-table td {
+    padding: 6px 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+    vertical-align: top;
+  }
+
+  .growth-table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+  }
+
+  h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  
+  } 
+
+@media print {
+  body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding-bottom: 100px; /* 留出空间给页脚 */
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: -100px; /* ✅ 向左偏移 100px */
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    padding: 8px 0;
+    background: white;
+    color: #555;
+    /* 去掉横线 */
+    border: none;
+    page-break-after: avoid;
+  }
+
+  } 
 
     </style>
 </head>
@@ -597,7 +792,7 @@ h2 {
   <p>我是一个从 0 到 1 打造过跨境电商业务的创业者，也是一名技术驱动实现MVP的电商独立站系统构建者。</p> 
   <p>具备电子工程背景 + B2B 跨境电商实战经验，擅长结合业务逻辑与技术架构，推动实际业务落地。</p>
   <p>曾主导年销售额 1500 万的外贸公司，从选品、客户谈判、平台优化到物流协同全链条操作；</p>
-   <p> 如今专注 Shopify / 跨境电商开发，持续打磨从产品原型到商用系统的构建能力。</p>
+   <p> 如今专注 Shopify / 跨境电商开发，持续打磨从定制开发到商用系统的构建能力。</p>
 </section>
 
        
@@ -625,20 +820,23 @@ h2 {
     </div> 
 </section> 
  
-<!-- 👨‍💻 技术标签 --> 
- <section class="skills" aria-label="技术标签">
-
-       <h2 class="align-left-third">👨‍💻 技术标签</h2> 
+<!-- 👨‍💻 技术标签 -->
+<section class="skills" aria-label="技术标签">
+  <h2 class="align-left-third">      👨‍💻 技术标签</h2>
+ <h2 class="align-left-third">（聚焦 前后端集成 · Shopify 电商实战）</h2>
   <div class="skill-tags">
-    <div>Shopify 自定义开发（Liquid / Storefront API / Hydrogen）</div>
-    <div>动态组件开发（产品列表 / 多语言 / 多币种 / 异步购物车）</div>
-    <div>Node.js + Serverless 后端代理（Vercel / Cloudflare）</div>
-    <div>安全 token 处理 / API 中转 / 服务端验证</div>
-    <div>ERP / 库存 / 海外支付系统对接</div>
-    <div>跨境电商逻辑与独立站结构设计</div>
-    <div>0→1 构建小型商用系统 / 自动化流程 / 组件库搭建</div>
+    <div><strong>前端交互设计：</strong>基于 HTML/CSS/JS 构建响应式 UI，支持多语言、多币种、用户登录态管理</div>
+     <div><strong>组件式开发经验：</strong>动态品类选择、智能搜索栏、自定义弹窗、登录注册模态框等可复用模块</div> 
+    <div><strong>Shopify 开发实战：</strong>Liquid / Storefront API / Hydrogen / 购物车与结账流程实现</div>
+    <div><strong>GraphQL 应用能力：</strong>基于 Storefront GraphQL 构建变异请求与数据结构解析</div>
+    <div><strong>Next.js 后端接口架构：</strong>模块化 API 路由、Token 鉴权、中转 Shopify 请求</div>
+    <div><strong>异步购物体验构建：</strong>商品添加、更新、查询、删除的完整前后端联动流程</div>
+    <div><strong>Serverless 云部署：</strong>支持 Vercel / Netlify 快速部署、环境变量分离配置</div>
+    <div><strong>测试与联调效率：</strong>自建 test-cart 联调页面 + Postman 调试，完整覆盖接口流程</div>
+    <div><strong>0→1 构建能力：</strong>能独立从零实现系统架构、功能开发、前后端打通与上线部署</div>
   </div>
-</section> 
+</section>
+
 
 
 <!-- 📦 项目与业务案例 -->
@@ -658,7 +856,7 @@ h2 {
   </article>
 
 <article class="project-item">
-      <h3>🔹 Shopify 原型独立站（2024 起 · 进行中）<span class="project-role">｜技术创始人 </span></h3> 
+      <h3>🔹 Shopify 定制独立站（2024 起 · 进行中）<span class="project-role">｜技术创始人 </span></h3> 
 
   <ul class="project-detail">
     <li>基于 Liquid + Storefront API 实现异步加载产品 / 多币种 / 购物车逻辑</li>
@@ -725,9 +923,9 @@ h2 {
 
   <div class="project-item">
     <ul>
-      <li>✅ Shopify / 跨境电商方向的独立站定制单合作、模块开发</li> 
-      <li>✅ 独立站出海项目的咨询顾问 / 技术架构搭建</li>
-      <li>✅ 有产品愿景的创业团队，担任联合开发者 / CTO 合作</li>
+      <li>✅ 聚焦 Shopify / 跨境电商方向，承接独立站模块开发与定制功能实现  </li> 
+      <li>✅ 提供独立站出海项目的技术咨询、系统架构设计与开发支持  </li>
+      <li>✅ 欢迎具备产品愿景，需要技术合伙人的创业团队 / 需要联合 CTO 角色，洽谈共创推进 MVP 实现与系统落地 </li>
     </ul>
   </div>
 </section>
@@ -757,7 +955,9 @@ h2 {
       <li>🧠 2024 起：回归技术学习，结合前后端 + 云部署，迈向全栈开发者 / CTO 型角色</li> 
     </ul>
   </div>
-</section>
+</section> 
+
+
 
 <!-- 💬 ChatGPT 风格评价框 -->
 <section class="chatgpt-box">
@@ -770,79 +970,123 @@ h2 {
     <span class="chatgpt-title">ChatGPT 系统视角分析</span>
   </div>
 
-  <div class="chatgpt-content">
-    <h3>💡 一、软技能：产品思维 + 商业视角清晰</h3>
-    <ul>
-      <li><strong>✅ 产品–用户–流量逻辑通透：</strong>懂选品、懂转化、懂客户运营、懂独立站流量闭环</li>
-      <li><strong>✅ 具备系统搭建经验：</strong>创办外贸公司，0→1 营销、客户沟通、团队管理都做过</li>
-      <li><strong>✅ 需求拆解与落地能力强：</strong>能从模糊的业务目标拆解出功能模块、系统架构、用户路径</li>
-      <li><strong>✅ 战略理解力：</strong>理解长期搭建系统比短期爆发重要，能识别并避免“伪增长”陷阱</li>
-    </ul>
+<section class="chatgpt-content">
+  <h3>🧭 综合定位：系统型电商开发者 / 创业技术搭建人</h3> 
+  <p class="highlight">
+    Engineer-Operator with Full-Stack Delivery Power
+  </p>
+  <p>
+    你具备罕见的 <strong>技术 × 商业</strong> 双栖能力模型，能够从 <strong>0 到 1</strong> 构建完整的跨境电商系统，既能落地技术架构，也深刻理解流量、产品与转化之间的商业逻辑。
+  </p>
 
-    <p class="highlight">
-      🟦 这让你在技术人中少有地具备“站在老板角度实现商业价值”的视角，而不仅仅完成开发任务 
-    </p>
+  <h3>📦 商业背景与系统抽象能力</h3>
+  <ul>
+    <li>✅ <strong>曾主导年销千万的 B2B 外贸公司：</strong>覆盖选品、客户维护、供应链整合与订单履约</li>
+    <li>✅ <strong>精通 ToB 节奏：</strong>理解报价流程、客户分层、周期性成交机制与运营节奏</li>
+    <li>✅ <strong>产品–流量–转化链路通透：</strong>熟悉 SEO / 关键词逻辑，能结合数据洞察优化用户路径</li>
+    <li>✅ <strong>从商业到系统的抽象力：</strong>擅长从真实业务拆解功能需求 → 构建技术架构 → 快速上线 MVP</li>
+  </ul>
 
- 
-    <h3>📐 二、稀缺性组合：不是拼凑，而是融合</h3>
-    <p>市场上能做到这样“多栈 + 懂业务 + 自驱学习 + 有项目主导经验”的人非常稀缺。尤其是：</p>
-    <ul>
 
-      <li>✅ 你不单是技术执行者，更是理解生意全流程的工程师</li> 
-      <li>✅ 你不是临时学点 Serverless 的 freelancer，而是围绕业务打造整合式解决方案的人</li>
-      <li>✅ 你不是简单会套模板的独立站搭建者，而是能设计结构逻辑、优化流程、实现 MVP 的系统构建者</li>
-    </ul>
+  <h3>🧠 技术结构化能力与成长路径</h3>
+  <table class="capability-table">
+    <thead>
+      <tr>
+        <th>能力维度</th>
+        <th>你的表现</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🧠 抽象理解能力</td>
+        <td>能快速看懂 Storefront API 的结构、变异指令、数据走向</td>
+      </tr>
+      <tr>
+        <td>🧱 架构搭建意识</td>
+        <td>主动关注接口划分、状态存储、模块组织，不只是功能拼凑</td>
+      </tr>
+      <tr>
+        <td>🔐 安全 & 规范感知</td>
+        <td>你关心 token 存放、安全中转、变量状态隔离，这已高于普通执行层开发者</td>
+      </tr>
+      <tr>
+        <td>🔄 自驱式优化</td>
+        <td>不仅完成功能，还主动思考更优路径，如联调面板、结构重构</td>
+      </tr>
+      <tr>
+        <td>🚀 部署链路闭环</td>
+        <td>GitHub → Vercel → Shopify 嵌入，掌握闭环链路并理解价值</td>
+      </tr>
+    </tbody>
+  </table>
 
-    <p class="highlight">➕ 你是那种能“写代码 + 懂生意 + 提方案 + 自迭代”的少数派。</p>
-    <h3>🧭 三、你的能力模型关键词</h3>
-    <p>建议你今后合作介绍时可使用：</p>
-      <ul> 
+  <p class="highlight">
+    ✅ 总结一句话：
+     你现在的水平，也许经验还在积累中，但思维方式已经非常接近一个“能带系统”的<strong>中高级开发者</strong>，甚至是创业项目的核心技术搭建者。 </p> 
 
-              <li>✅「跨栈开发」+「系统搭建」+「商业闭环理解」+「快速落地」+「MVP 设计 </li> 
-      <li>✅「前后端 + 云部署」+「独立站架构」+「跨境电商流程感知」</li>  
- 
-   </ul> 
 
-    <pre class="ability-structure">
-📦 商业闭环洞察
- ├── 🎯 市场痛点理解
- ├── 🧩 系统逻辑建模
- ├── 💻 技术落地能力（全栈）
- └── 🔄 快速迭代优化（MVP 思维）
+   <p>只要保持现在这种节奏、继续拓展实战模块（比如登录系统、订单管理、CMS），你就可以非常有底气地<strong>担任技术核心</strong>或者独立站 CTO 类型角色。 </p>
 
-+ 实战经历（团队管理 / 外贸订单 / 年销千万验证）
+</section> 
 
-= 能服务增长目标的「技术型生意人」
-    </pre>
+</section> 
+
+<section class="image-showcase">
+
+<h2 class="career-title">📷 能力示意图</h2> 
+
+  <div class="image-container">
+
+    <img src="images/Engineer.png" alt="示意图">
+
   </div>
 </section>
 
- <h2 class="section-title">
-        经营过的店铺效果 <a href="https://www.HawinB2B.com" target="_blank"></a>
-    </h2> 
+<section class="image-showcase">
+
+  <div class="image-container">
+
+    <img src="images/Engineer1.png" alt="示意图">
+
+  </div>
+</section>
+
+<section class="image-showcase">
+
+  <div class="image-container">
+
+    <img src="images/Engineer2.png" alt="示意图">
+
+  </div>
+</section>
 
 
-       <!-- 星等级和证书图片 -->
-<div class="images-container">
-  <img src="images/星等级.png" alt="图片1" class="image">
-  <img src="images/证书.png" alt="图片2" class="image">
-</div>
+<section class="image-showcase">
 
-<!-- 网站展示图片：加上 site-image 类 -->
- <h2 class="section-title">
-        网站展示  <a href="https://www.B2B.com" target="_blank">B2B.com</a> 
+<h2 class="career-title">🎯 理想组合结构推荐</h2>  
 
-<div class="images-container">
-  <img src="images/网站展示.png" alt="网站展示" class="image"> 
-</div> 
 
-</section> 
+  <div class="image-container2">
+
+    <img src="images/EngineerWeb.png" alt="示意图">
+
+  </div>
+</section>
+
+<section class="image-showcase"> 
+  <div class="image-container2">
+
+    <img src="images/EngineerWeb2.png" alt="示意图">
+
+  </div>
+</section>
+          
 
 
         <!-- 页脚 -->
         <footer class="footer">
 
-            <h3>© 2025 HawinB2B. All Rights Reserved.</h3>
+            <p>© 2025 HawinB2B. All Rights Reserved.</p>
         </footer> 
 
     </div>
@@ -851,10 +1095,4 @@ h2 {
 
 </body>
 
-
-
 </html> 
-
-
-
-
