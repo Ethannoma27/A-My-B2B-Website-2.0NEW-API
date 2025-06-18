@@ -770,20 +770,32 @@ h2 {
 
   } 
 
+  @media (max-width: 768px) {
+  .mobile-hide-on-small {
+    display: none !important;
+  }
+}
+
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- 个人信息 -->
-        <header>
-    <div class="profile">
-        <img src="images/Profile - 副本.jpg" alt="个人图片" class="profile-image">
-        <h1>张宁 Janney</h1>
-    </div>
-    <div class="contact-info">
-        <p>Wechat | Email :  <a href="mailto:[hawinb2b2025@hotmail.com]">请询问</a>  展示网站: <a href="https://www.HawinB2B.com" target="_blank">HawinB2B.com</a></p>
-    </div>
+<div class="container">
+    <!-- 个人信息 -->
+    <header>
+        <div class="profile">
+            <img src="images/Profile - 副本.jpg" alt="个人图片" class="profile-image">
+            <h1>张宁 Janney</h1>
+        </div>
+        <div class="contact-info mobile-hide-on-small">
+            <p>
+                Wechat | Email : <a href="mailto:[hawinb2b2025@hotmail.com]">请询问</a>　
+                展示网站: <a href="https://www.HawinB2B.com" target="_blank">HawinB2.com</a>
+            </p>
+        </div>
+    </header>
+
 </header> 
 
 <!-- 🧑‍💼 有关我 -->
@@ -1086,7 +1098,7 @@ h2 {
         <!-- 页脚 -->
         <footer class="footer">
 
-            <p>© 2025 HawinB2B. All Rights Reserved.</p>
+            <p>© 2025 HawinB2B. All Rights Reserved.</p> 
         </footer> 
 
     </div>
