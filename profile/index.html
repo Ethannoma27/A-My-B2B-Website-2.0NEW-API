@@ -10,7 +10,11 @@
     <!-- 引入 Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style> 
-/* 全局样式 */
+
+
+/* ===========================
+   全局基础样式
+   =========================== */
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #6D83F2, #3C5A9A);
@@ -20,28 +24,32 @@ body {
     color: #333;
 }
 
-/* 个人信息区域 */
+/* ===========================
+   ① Header 个人信息区域
+   =========================== */
 header {
     display: flex;
-    align-items: center; /* 垂直居中对齐 */
+    align-items: center; /* 垂直居中 */
     justify-content: center;
-    gap: 20px; /* 图片与名字之间的间距 */
+    gap: 20px; /* 图片与名字间距 */
 }
 
 .profile {
     display: flex;
-    align-items: center; /* 使图片和名字水平对齐 */
+    align-items: center; /* 水平对齐图片和名字 */
 }
 
 .profile-image {
-    width: 100px; /* 设置图片的宽度 */
-    height: 100px; /* 设置图片的高度 */
-    margin-right: 50px; /* 图片和姓名之间的间距 */
-    border-radius: 15px; /* 设置椭圆形圆角，数值越大角越圆 */
-    object-fit: cover; /* 保证图片裁剪时保持比例，避免拉伸 */
+    width: 100px; /* 图片尺寸 */
+    height: 100px;
+    margin-right: 50px; /* 图片与姓名间距 */
+    border-radius: 15px; /* 圆角 */
+    object-fit: cover; /* 保持比例裁剪 */
 }
 
-/* 页面容器 */
+/* ===========================
+   ② 页面整体容器
+   =========================== */
 .container {
     width: 90%;
     margin: 50px auto;
@@ -53,57 +61,15 @@ header {
     overflow: hidden;
 }
 
-/* 产品类别展示 */
-.product-category {
-    display: flex;
-    justify-content: space-around; /* 保持均匀间距 */
-    margin-top: 50px;
-    margin-bottom: 40px;
-    gap: 65px; /* 增大图标之间的水平间距 */
-}
-
-/* 每个项目的容器 */
-.product-category div {
-    text-align: center;
-}
-
-/* 图标样式 */
-.product-icon {
-    font-size: 50px; /* 增大图标 */
-    color: #3498db; /* 原始蓝色 */
-    margin-bottom: 15px;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-/* 鼠标悬停时的效果 */
-.product-category div:hover .product-icon {
-    transform: scale(1.2); /* 放大效果 */
-    color: #3498db; 
-}
-
-.product-category p {
-    font-size: 18px;
-    color: #555;
-    font-weight: 600;
-    letter-spacing: 2px; /* 增加字母之间的水平间距 */
-}
-
-/* 单独调整“太阳能板”的位置 */
-.solar-panel {
-    margin-left: 20px; /* 向右移动 */
-    font-size: 18px;
-    color: #555;
-    font-weight: 600;
-    letter-spacing: 2px;
-}
-
-/* 标题统一样式 */
+/* ===========================
+   ③ 标题样式
+   =========================== */
 h1, h2 {
     font-weight: 600;
     color: #2c3e50;
     text-align: center;
-    margin-bottom: 15px;  
-    text-transform: capitalize; 
+    margin-bottom: 15px;
+    text-transform: capitalize;
 }
 
 h1 {
@@ -116,7 +82,9 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* 个人信息 */
+/* ===========================
+   ⑤ 个人联系信息
+   =========================== */
 .contact-info {
     font-size: 18px;
     color: #555;
@@ -126,7 +94,7 @@ h2 {
 }
 
 .contact-info p {
-    margin-top: 60px;  /* 增加顶部间距，向下移动 */
+    margin-top: 60px;
 }
 
 .contact-info a {
@@ -139,20 +107,24 @@ h2 {
     color: #1abc9c;
 }
 
-/* 节标题 .section-title 样式 */
+/* ===========================
+   ⑥ 节标题样式
+   =========================== */
 .section-title {
-    font-size: 24px;  
+    font-size: 24px;
     font-weight: 600;
     color: #3498db;
-    margin-top: 30px;  
-    margin-bottom: 15px;  
+    margin-top: 30px;
+    margin-bottom: 15px;
     border-bottom: 2px solid #3498db;
     padding-bottom: 5px;
     position: relative;
-    text-align: center;  
+    text-align: center;
 }
 
-/* 列表样式 */
+/* ===========================
+   ⑦ 列表样式
+   =========================== */
 .list {
     margin: 0;
     padding: 0;
@@ -173,92 +145,100 @@ h2 {
     background-color: #eaf2f8;
 }
 
-
-  /* ChatGPT 聊天模式 */ 
+/* ===========================
+   ⑧ ChatGPT 聊天模块样式
+   =========================== */
 .chatgpt-box {
-  margin: 0 auto;              /* 居中 */
-  background: #fff;
-  border: 1.5px solid #ddd;
-  border-radius: 12px;
-  padding: 24px 28px;
-  font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
-
-
+    margin: 0 auto;
+    background: #fff;
+    border: 1.5px solid #ddd;
+    border-radius: 12px;
+    padding: 24px 28px;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
 }
+
 .chatgpt-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  color: #555;
-  font-weight: 600;
-  font-size: 18px;
-}
-.chatgpt-content h3 {
-  font-weight: 700;
-  color: #333;
-  margin-top: 20px;
-  margin-bottom: 12px;
-  font-size: 16.5px;
-}
-.chatgpt-content ul {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 20px;
-}
-.chatgpt-content ul li {
-  padding-left: 24px;
-  position: relative;
-  line-height: 1.5;
-  font-size: 14.8px;
-  color: #444;
-}
-.chatgpt-content ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #40a9ff;
-  font-weight: bold;
-}
-.highlight {
-  background: #e6f7ff;
-  border-left: 4px solid #1890ff;
-  padding: 12px 16px;
-  border-radius: 6px;
-  font-size: 14.6px;
-  color: #0c3a6e;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-.tagline {
-  font-weight: 600;
-  font-size: 14.8px;
-  
-  color:#333;
-  background: #f7faff;
-  padding: 14px 18px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  white-space: pre-wrap;
-  line-height: 1.5;
-}
-.ability-structure {
-  background: #f0f4f8;
-  border-radius: 8px;
-  padding: 16px 18px;
-  font-family: Menlo, Consolas, monospace;
-  font-size: 14px;
-  line-height: 1.65;
-  color: #1a1a1a;
-  white-space: pre-wrap;
-  margin-top: 0;
-  margin-bottom: 12px;
-  border: 1px dashed #b0bec5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: #555;
+    font-weight: 600;
+    font-size: 18px;
 }
 
- /* 横版图片展示部分 */
+.chatgpt-content h3 {
+    font-weight: 700;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    font-size: 16.5px;
+}
+
+.chatgpt-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.chatgpt-content ul li {
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.5;
+    font-size: 14.8px;
+    color: #444;
+}
+
+.chatgpt-content ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #40a9ff;
+    font-weight: bold;
+}
+
+.highlight {
+    background: #e6f7ff;
+    border-left: 4px solid #1890ff;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14.6px;
+    color: #0c3a6e;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.tagline {
+    font-weight: 600;
+    font-size: 14.8px;
+    color: #333;
+    background: #f7faff;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.ability-structure {
+    background: #f0f4f8;
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-family: Menlo, Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #1a1a1a;
+    white-space: pre-wrap;
+    margin-top: 0;
+    margin-bottom: 12px;
+    border: 1px dashed #b0bec5;
+}
+
+/* ===========================
+   ⑨ 图片横向展示区域
+   =========================== */
 .images-section {
     margin-top: 40px;
     text-align: center;
@@ -267,12 +247,12 @@ h2 {
 .images-container {
     display: flex;
     justify-content: center;
-    gap: 20px; /* 增加图片之间的间距 */
+    gap: 20px;
 }
 
 .image {
     width: 100%;
-    max-width: 500px; /* 设置图片最大宽度为A4纸宽度 */
+    max-width: 500px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -284,96 +264,92 @@ h2 {
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
 }
 
-/* 使得第三张图片宽度是前两张的两倍 */
+/* 第三张图片加宽 */
 .image-wide {
-    max-width: 800px; /* 两张图片的宽度 */
+    max-width: 800px;
 }
 
- /* 插图样式 */
-        .product-icon {
-            width: 50px;
-            height: 50px;
-            margin: 10px 0;
-        }
+/* 插图小图标样式 */
+.product-icon {
+    width: 50px;
+    height: 50px;
+    margin: 10px 0;
+}
 
-        .product-category {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+.product-category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
+/* ===========================
+   ⑩ 大图展示区
+   =========================== */
 .image-showcase {
-  max-width: 100%;
-  margin: 60px auto;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-  padding: 0 20px;
+    max-width: 100%;
+    margin: 60px auto;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 0 20px;
 }
 
 .image-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.image-container, .image-container2 {
+    max-width: 1500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    background-color: #f9f9f9;
+    position: relative;
 }
 
 .image-container {
-  max-width: 1500px;
-  aspect-ratio: 5 / 2; /* 等比缩放：1500 / 600 */
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  background-color: #f9f9f9;
-  position: relative;
-}
-
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    aspect-ratio: 5 / 2;
 }
 
 .image-container2 {
-  max-width: 1500px;
-  aspect-ratio: 25 / 12; /* 对应 1500x720 的宽高比例 */
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  background-color: #f9f9f9;
-  position: relative;
+    aspect-ratio: 25 / 12;
 }
 
-
+.image-container img,
 .image-container2 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.capability-table {
-  width: 70%;
-  border-collapse: collapse;
-  margin-top: 1em;
+/* ===========================
+   ⑪ 能力表格样式（优化宽度 & 紧凑高度）
+   =========================== */
+
+   .capability-table {
+  width: 90%;                    /* 增加宽度 */
+  max-width: 1200px;             /* 限制最大宽度 */
+  margin: 1em auto;              /* 居中且上下间距 */
+  border-collapse: collapse;    /* 保持原有折叠边框 */
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   font-family: 'Segoe UI', sans-serif;
   font-size: 15px;
-  border-radius: 8px;
   overflow: hidden;
 }
 
 .capability-table th,
 .capability-table td {
-  padding: 12px 16px;
+  padding: 8px 12px;             /* 减小内边距，控制行高 */
   border-bottom: 1px solid #eaeaea;
   text-align: left;
   vertical-align: top;
+  line-height: 1.3;              /* 控制行高 */
 }
 
 .capability-table th {
@@ -386,62 +362,82 @@ h2 {
   border-bottom: none;
 }
 
+.potential-valuation {
+  /* 原有样式继续写在这里 */
+  vertical-align: middle;
+}
 
-     table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 24px 0;
-        }
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-        td, th {
-            padding: 10px 14px;
-            text-align: left;
-        }
-        .highlight {
-            font-weight: bold;
-            color: #005a9c;
-        }
-        .section {
-            margin-top: 40px;
-        }
-        .value-summary {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-        /* High-end style for the potential valuation column */
-        .potential-valuation {
-            font-weight: bold;
-            color: #ffffff;  /* White color for contrast */
-            font-size: 1.2em; /* Slightly larger text for prominence */
-            padding: 8px 15px; /* Adding padding for better visual spacing */
-            background: linear-gradient(135deg, #3498db, #9b59b6); /* Blue to purple gradient */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-            text-align: center;
-            transition: all 0.3s ease; /* Smooth transition effect */
-        }
-        .potential-valuation:hover {
-            background: linear-gradient(135deg, #2ecc71, #f39c12); /* Change gradient on hover */
-            transform: scale(1.05); /* Slight scale effect */
-        } 
+/* ===========================
+   ⑫ 通用表格样式
+   =========================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+}
 
-       
-  .about-me {
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+td, th {
+    padding: 10px 14px;
+    text-align: left;
+}
+
+/* 表格重点样式 */
+.highlight {
+    font-weight: bold;
+    color: #005a9c;
+}
+
+/* 段落/版块间距 */
+.section {
+    margin-top: 40px;
+}
+
+.value-summary {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* 估值高端样式 */
+.potential-valuation {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.2em;
+    padding: 8px 15px;
+    background: linear-gradient(135deg, #3498db, #9b59b6);
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.potential-valuation:hover {
+    background: linear-gradient(135deg, #2ecc71, #f39c12);
+    transform: scale(1.05);
+}
+
+/* ===========================
+   ⑬ 关于我区域
+   =========================== */
+.about-me {
     max-width: 720px;
     margin: 40px auto;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #222;
     line-height: 1.6;
-  }
-  .about-me h2 {
+}
+
+.about-me h2 {
     font-weight: 700;
     font-size: 1.8rem;
     margin-bottom: 20px;
     color: #2563eb;
-  }
-  .about-me .highlight {
+}
+
+.about-me .highlight {
     background: #f0f9ff;
     padding: 12px 20px;
     font-style: normal;
@@ -450,74 +446,77 @@ h2 {
     color: #1e40af;
     font-size: 1.1rem;
     border-radius: 6px;
-
-  }
-/* 新增突出显示的部分 */
-.about-me .highlight-key {
-  color: #d97706; /* 橙色，显眼 */
-  font-weight: 700;
-  background-color: #fff7e6; /* 浅黄色背景 */
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-style: normal; /* 取消 em 默认斜体，如果你想保留斜体，可以去掉这一行 */
-  box-shadow: 0 0 5px rgba(217, 119, 6, 0.3);
 }
 
-  .about-me code {
+.about-me code {
     background: #e0f2fe;
     color: #0369a1;
     padding: 2px 6px;
     border-radius: 3px;
     font-family: "Source Code Pro", monospace;
-  }
-  .about-me ul.key-points {
+}
+
+.about-me ul.key-points {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  .about-me ul.key-points li {
+}
+
+.about-me ul.key-points li {
     margin-bottom: 15px;
     font-size: 1rem;
-  }
-  .about-me ul.key-points strong {
-    color: #1e40af;
-  }
+}
 
-   .performance-summary {
+.about-me ul.key-points strong {
+    color: #1e40af;
+}
+
+/* 性能摘要 */
+.performance-summary {
     background-color: #f5f5f5;
     padding: 10px;
     margin-top: 15px;
     font-size: 1em;
-  }
+}
 
-  .highlight {
+/* 高亮字体 */
+.highlight {
     font-weight: bold;
-  }
+}
 
-  .highlight-red {
+.highlight-red {
     color: #E74C3C;
-  }
+}
 
-
+/* ===========================
+   ⑭ 系统提示框样式
+   =========================== */
 .system-note {
-  border-left: 4px solid #3498db;  /* 经典蓝色左边框 */
-  padding: 10px 16px;
-  margin: 20px 0;
-  font-size: 0.95em;
-  line-height: 1.5;
-  background-color: #fafafa;
-  color: #2c2c2c;
+    border-left: 4px solid #3498db;
+    padding: 10px 16px;
+    margin: 20px 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+    background-color: #fafafa;
+    color: #2c2c2c;
 }
+
 .system-note code {
-  background: none;
-  color: #333;
-  font-weight: bold;
+    background: none;
+    color: #333;
+    font-weight: bold;
 }
+
 .system-note p {
-  margin: 6px 0;
+    margin: 6px 0;
+    
 }
 
+/* ======================
+   ③ 移动端响应式样式（max-width: 768px）
+   ====================== */
 
+/* 整体字体及容器调整 */
 @media (max-width: 768px) {
   body {
     font-size: 90%;
@@ -529,17 +528,23 @@ h2 {
     font-size: 28px;
   }
 }
+
+/* 个人信息区间距调整 */
 @media (max-width: 768px) {
   .profile {
     margin-top: 20px;
     margin-bottom: 20px;
   }
 }
+
+/* 个人信息区标题字体大小调整 */
 @media (max-width: 768px) {
   .profile h1 {
     font-size: 26px;
   }
 }
+
+/* 能力表格在移动端的适配 */
 @media (max-width: 768px) {
   .capability-table {
     width: 100% !important;
@@ -559,9 +564,19 @@ h2 {
   }
 }
 
+/* 隐藏特定元素（用于小屏幕） */
+@media (max-width: 768px) {
+  .mobile-hide-on-small {
+    display: none !important;
+  }
+}
 
-        /* 打印样式 */ 
 
+/* ======================
+   ④ 打印样式 @media print
+   ====================== */
+
+/* 基础打印样式设置 */
 @media print {
   body, .container {
     background-color: white !important;
@@ -573,159 +588,161 @@ h2 {
   }
 
   .chatgpt-box {
- 
     transform: none !important;   /* 取消 translateX */
     margin-left: auto !important;
     margin-right: auto !important;
   }
 
-    .images-section {
+  .images-section {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
+  /* A4纸大小及边距设置 */
+  @page {
+    size: A4;
+    margin: 6mm; /* 缩小边距 */
+    transform-origin: top; /* 确保从顶部开始缩放 */
+  }
 
-    /* 设置A4纸大小 */
-    @page {
-        size: A4;
-        margin: 6mm; /* 缩小边距 */
-        transform-origin: top; /* 确保从顶部开始缩放 */
-    }
-    footer {
-        page-break-inside: avoid !important; /* 避免footer被拆分 */
-        page-break-before: avoid !important; /* 确保footer不会被推到新页 */
-        page-break-after: auto; /* 允许后面内容正常分页 */
-    }
+  /* 页脚避免分页 */
+  footer {
+    page-break-inside: avoid !important;
+    page-break-before: avoid !important;
+    page-break-after: auto;
+  }
 
+  /* 字体大小调整 */
+  body, .container {
+    font-size: 12px !important; /* 增大字体以便打印 */
+    margin: 0;
+    padding: 0;
+    background-color: #fff !important;
+  }
 
-    body, .container {
-        font-size: 12px !important; /* 增大字体以便打印 */
-        margin: 0;
-        padding: 0;
-        background-color: #fff !important;
-    }
+  /* 头部区域 */
+  header {
+    padding: 10px 0 !important;
+  }
 
-    header {
-        padding: 10px 0 !important;
-    }
+  header h1 {
+    font-size: 24pt !important; /* 统一标题字体大小 */
+    text-align: center;
+  }
 
-    header h1 {
-        font-size: 24pt !important; /* 统一标题字体大小 */
-        text-align: center;
-    }
+  /* 内容区域调整 */
+  .content {
+    margin: 10px auto;
+    padding: 10px;
+    box-shadow: none;
+  }
 
-    .content {
-        margin: 10px auto;
-        padding: 10px;
-        box-shadow: none;
-    }
+  /* 表格调整 */
+  table {
+    width: 100% !important;
+    margin: 20px 0;
+    border-collapse: collapse;
+  }
 
-    /* 表格 */
-    table {
-        width: 100% !important;
-        margin: 20px 0;
-        border-collapse: collapse;
-    }
+  table th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 10pt !important; /* 打印时字体更小 */
+  }
 
-    table th, td {
-        padding: 10px;
-        text-align: left;
-        border: 1px solid #ddd;
-        font-size: 10pt !important; /* 打印时字体更小 */
-    }
+  table th {
+    background-color: #3498db;
+    color: #fff;
+  }
 
-    table th {
-        background-color: #3498db;
-        color: #fff;
-    }
+  /* 内容区间距 */
+  section {
+    margin-bottom: 20px !important;
+  }
 
-    /* 内容区域 */
-    section {
-        margin-bottom: 20px !important;
-    }
+  /* 标题字体调整 */
+  h2 {
+    font-size: 16pt !important;
+    color: #3498db !important;
+  }
 
-    h2 {
-        font-size: 16pt !important;
-        color: #3498db !important;
-    }
+  h3 {
+    font-size: 14pt !important;
+    color: #2c3e50 !important;
+  }
 
-    h3 {
-        font-size: 14pt !important;
-        color: #2c3e50 !important;
-    }
-
-    p {
-        font-size: 10pt !important;
-        margin: 10px 0;
-    }
-} 
-     /* 打印版样式 */
-@media print {
-
-
-    body {
-        background-color: #fff; /* 打印时背景为白色 */
-        margin: 0;
-        padding: 0;
-         transform: translateX(-5px);
-    }
-
-    header {
-        padding: 10px 0;
-        border-bottom: 2px solid #2980b9;
-        box-shadow: none;
-    }
-
-    header h1 {
-        font-size: 1.5rem; /* 打印时字体更小 */
-    }
-
-    .container {
-        width: 100%;
-        margin: 0;
-        padding: 20px;
-        box-shadow: none;
-        border-radius: 0;
-    }
-
-    .section-title {
-        font-size: 1.2rem; /* 打印时字体大小适当缩小 */
-        margin-top: 20px;
-    }
-
-    .cta-button {
-        display: none; /* 打印时隐藏按钮 */
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .image-container {
-        margin: 10px 0; /* 调整图片间距 */
-    }
-
-    /* 强制图片展示在同一页 */
-    .images-section {
-        page-break-before: always; /* 确保图片部分在新的一页上 */
-    }
-
-
-    .image {
-        width: 50%; /* 调整图片宽度 */
-        max-width: 680px; /* 保证不会超过A4纸宽度 */
-    }
-
-
-    /* 调整最后一对图片确保它们不会被推到新的一页 */
-    .images-container img {
-        page-break-inside: avoid; /* 避免图片被拆分 */
-            max-width: 880px; /* 保证不会超过A4纸宽度 */
-    }
+  p {
+    font-size: 10pt !important;
+    margin: 10px 0;
+  }
 }
+
+/* 打印时页面及容器基本样式调整 */
+@media print {
+  body {
+    background-color: #fff; /* 打印时背景为白色 */
+    margin: 0;
+    padding: 0;
+    transform: translateX(-5px);
+  }
+
+  header {
+    padding: 10px 0;
+    border-bottom: 2px solid #2980b9;
+    box-shadow: none;
+  }
+
+  header h1 {
+    font-size: 1.5rem; /* 打印时字体更小 */
+  }
+
+  .container {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .section-title {
+    font-size: 1.2rem; /* 打印时字体大小适当缩小 */
+    margin-top: 20px;
+  }
+
+  .cta-button {
+    display: none; /* 打印时隐藏按钮 */
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .image-container {
+    margin: 10px 0; /* 调整图片间距 */
+  }
+
+  /* 图片部分分页控制 */
+  .images-section {
+    page-break-before: always; /* 确保图片部分在新的一页上 */
+  }
+
+  .image {
+    width: 50%; /* 调整图片宽度 */
+    max-width: 680px; /* 保证不会超过A4纸宽度 */
+  }
+
+  /* 确保图片不会被拆分 */
+  .images-container img {
+    page-break-inside: avoid;
+    max-width: 880px; /* 保证不会超过A4纸宽度 */
+  }
+}
+
+/* 打印时图片展示区域适配 */
 @media print {
   body {
     margin: 0;
@@ -787,6 +804,8 @@ h2 {
     break-after: avoid;
   }
 }
+
+/* 打印时增长表格样式调整 */
 @media print {
   .growth-table {
     width: 100%;
@@ -813,9 +832,9 @@ h2 {
     page-break-after: avoid;
     break-after: avoid;
   }
-  
-  } 
+}
 
+/* 打印时页脚固定及位置调整 */
 @media print {
   body {
     position: relative;
@@ -827,27 +846,17 @@ h2 {
   .footer {
     position: fixed;
     bottom: 0;
-    left: -100px; /* ✅ 向左偏移 100px */
+    left: -100px; /* 向左偏移 100px */
     right: 0;
     text-align: center;
     font-size: 12px;
     padding: 8px 0;
     background: white;
     color: #555;
-    /* 去掉横线 */
-    border: none;
+    border: none; /* 去掉横线 */
     page-break-after: avoid;
   }
-
-  } 
-
-  @media (max-width: 768px) {
-  .mobile-hide-on-small {
-    display: none !important;
-  }
 }
-
-
 
     </style>
 </head>
@@ -1016,11 +1025,11 @@ h2 {
   </table>
 </section>
 
-
 <style>
-  .gray-title {
-    color: #888;
-  }
+  
+.gray-title {
+  color:#555555!important; 
+}
   @media print {
     .gray-title {
       color: #888 !important;
@@ -1198,90 +1207,112 @@ h2 {
   </p> 
 </section> 
 
-
 <h2 style="font-size: 26px; color: #5e35b1; margin-top: 40px; margin-bottom: 40px;">
-    ✅ 中国市场网站 / 系统开发价格等级图谱（2025年版）
+  ✅ 中国市场网站/系统开发价格等级图谱（2025年版）
 </h2> 
+
 <p style="font-size: 14px; line-height: 1.4; color: #3e3e3e;">
-    ChatGPT 数据 ：我们按 <strong>L1 ~ L5 五个等级</strong>，系统梳理 <strong>功能深度 × 市场价格 × 价值逻辑 × 适配企业级别</strong>，让你清楚自己做的「 单个系统 」，值多少钱
+  ChatGPT 数据 ：我们按 <strong>L1 ~ L5 五个等级</strong>，系统梳理 <strong>功能深度 × 市场价格 × 价值逻辑 × 适配企业级别</strong>，让你清楚自己能做的系统，值多少钱
 </p>
 
-<table style="width: 100%; border-collapse: collapse; font-size: 14px; color: #374151; margin-top: 15px; border: 1px solid #e5e7eb;">
-    <thead>
-        <tr style="background-color: #f9fafb;">
-            <th style="padding: 8px; text-align: left; border-bottom: 1px solid #d1d5db;">等级</th>
-            <th style="padding: 8px; text-align: left; border-bottom: 1px solid #d1d5db;">类型</th>
-            <th style="padding: 8px; text-align: left; border-bottom: 1px solid #d1d5db;">市场价格区间</th>
-            <th style="padding: 8px; text-align: left; border-bottom: 1px solid #d1d5db;">客户类型</th>
-            <th style="padding: 8px; text-align: left; border-bottom: 1px solid #d1d5db;">核心特点</th>
-            <th style="padding: 8px; text-align: left; border-bottom: 1px solid #d1d5db;">效率级别</th>
-            <th style="padding: 8px; text-align: left; border-bottom: 1px solid #d1d5db;">提升效益</th>
-            <th style="padding: 8px; text-align: left; border-bottom: 1px solid #d1d5db;">年度利润潜在估值</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="padding: 8px; background-color: #f9fafb;">🟢 L1</td>
-            <td style="padding: 8px;">模板展示站</td>
-            <td style="padding: 8px;">¥1000 – ¥3,000</td>
-            <td style="padding: 8px;">个体户 / 初级微商</td>
-            <td style="padding: 8px;">WordPress/Shopify模板，几页图文展示，少量交互</td>
-            <td style="padding: 8px;">☆☆☆☆☆</td>
-            <td style="padding: 8px;">☆☆☆☆☆</td>
-            <td style="padding: 8px;" class="potential-valuation">¥10,000 – ¥50,000</td>
-        </tr>
-        <tr>
-            <td style="padding: 8px; background-color: #f9fafb;">🔵 L2</td>
-            <td style="padding: 8px;">营销型电商站</td>
-            <td style="padding: 8px;">¥3,000 – ¥15,000</td>
-            <td style="padding: 8px;">初创品牌 / 小电商</td>
-            <td style="padding: 8px;">有商品模块、收款、轮播图、引导CTA，轻前端转化</td>
-            <td style="padding: 8px;">☆☆☆☆</td>
-            <td style="padding: 8px;">★☆☆☆☆</td>
-            <td style="padding: 8px;" class="potential-valuation">¥50,000 – ¥200,000</td>
-        </tr>
-        <tr>
-            <td style="padding: 8px; background-color: #f9fafb;">🟡 L3</td>
-            <td style="padding: 8px;">轻定制商城 / 外贸站</td>
-            <td style="padding: 8px;">¥15,000 – ¥50,000</td>
-            <td style="padding: 8px;">中小外贸公司 / 品牌独立站</td>
-            <td style="padding: 8px;">多语言+物流+支付+询盘，初步对接 Shopify API / ERP</td>
-            <td style="padding: 8px;">★☆☆☆☆</td>
-            <td style="padding: 8px;">★★☆☆☆</td>
-            <td style="padding: 8px;" class="potential-valuation">¥200,000 – ¥500,000</td>
-        </tr>
-        <tr>
-            <td style="padding: 8px; background-color: #f9fafb;">🟠 L4</td>
-            <td style="padding: 8px;">半自动化业务系统</td>
-            <td style="padding: 8px;">¥50,000 – ¥150,000</td>
-            <td style="padding: 8px;">有运营团队的 B2B 商家</td>
-            <td style="padding: 8px;">支持自动报价、客户分级、通知流、数据结构化流程自动化、提升5-10倍人工效率</td>
-            <td style="padding: 8px;">★★★☆☆</td>
-            <td style="padding: 8px;">★★★★★</td>
-            <td style="padding: 8px;" class="potential-valuation">¥500,000 – ¥2,000,000</td>
-        </tr>
-        <tr>
-            <td style="padding: 8px; background-color: #f9fafb;">🔴 L5</td>
-            <td style="padding: 8px;">商业系统平台（可复用）</td>
-            <td style="padding: 8px;">¥150,000 – ¥500,000+</td>
-            <td style="padding: 8px;">SaaS 初创 / 品牌平台型团队</td>
-            <td style="padding: 8px;">模块级系统、可配置客户流、API接口、AI协同、可复用系统结构</td>
-            <td style="padding: 8px;">★★★★★</td>
-            <td style="padding: 8px;">★★★★★</td>
-            <td style="padding: 8px;" class="potential-valuation">¥2,000,000 – ¥10,000,000+</td>
-        </tr>
-    </tbody>
+<table class="capability-table" style="width: 100%; border-collapse: collapse; font-size: 14px; color: #374151; margin-top: 15px; border: 1px solid #e5e7eb;">
+  <thead>
+    <tr style="background-color: #f9fafb;">
+      <th style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #d1d5db;">等级</th>
+      <th style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #d1d5db;">类型</th>
+      <th style="padding: 4px 8px; text-align: left; vertical-align: middle; border-bottom: 1px solid #d1d5db;">市场价格区间</th>
+      <th style="padding: 4px 8px; width: 18%; text-align: left; border-bottom: 1px solid #d1d5db; white-space: normal;">客户类型</th>
+      <th style="padding: 4px 8px; width: 12%; text-align: left; border-bottom: 1px solid #d1d5db; white-space: normal;">核心特点</th>
+      <th style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #d1d5db;">效率级别</th>
+      <th style="padding: 4px 8px; text-align: left; border-bottom: 1px solid #d1d5db;">提升效益</th>
+      <th style="padding: 4px 8px; text-align: left; vertical-align: middle; border-bottom: 1px solid #d1d5db;">年度利润潜在估值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 4px 8px; background-color: #f9fafb;">🟢 L1</td>
+      <td style="padding: 4px 8px;">模板展示站</td>
+      <td style="padding: 4px 8px; vertical-align: middle;">¥1000 – ¥3,000</td>
+      <td style="padding: 4px 8px;">个体户 / 初级微商</td>
+      <td style="padding: 4px 8px;">WordPress/Shopify模板，几页图文展示，少量交互</td>
+      <td style="padding: 4px 8px;">☆☆☆☆☆</td>
+      <td style="padding: 4px 8px;">☆☆☆☆☆</td>
+      <td class="potential-valuation" style="padding: 4px 8px; vertical-align: middle;">¥10,000 – ¥50,000</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; background-color: #f9fafb;">🔵 L2</td>
+      <td style="padding: 4px 8px;">营销型电商站</td>
+      <td style="padding: 4px 8px; vertical-align: middle;">¥3,000 – ¥15,000</td>
+      <td style="padding: 4px 8px;">初创品牌 / 小电商</td>
+      <td style="padding: 4px 8px;">有商品模块、收款、轮播图、引导CTA，轻前端转化</td>
+      <td style="padding: 4px 8px;">☆☆☆☆</td>
+      <td style="padding: 4px 8px;">★☆☆☆☆</td>
+      <td class="potential-valuation" style="padding: 4px 8px; vertical-align: middle;">¥50,000 – ¥200,000</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; background-color: #f9fafb;">🟡 L3</td>
+      <td style="padding: 4px 8px;">轻定制商城 / 外贸站</td>
+      <td style="padding: 4px 8px; vertical-align: middle;">¥15,000 – ¥50,000</td>
+      <td style="padding: 4px 8px;">中小外贸公司 / 品牌独立站</td>
+      <td style="padding: 4px 8px;">多语言+物流+支付+询盘，初步对接 Shopify API / ERP</td>
+      <td style="padding: 4px 8px;">★☆☆☆☆</td>
+      <td style="padding: 4px 8px;">★★☆☆☆</td>
+      <td class="potential-valuation" style="padding: 4px 8px; vertical-align: middle;">¥200,000 – ¥500,000</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; background-color: #f9fafb;">🟠 L4</td>
+      <td style="padding: 4px 8px;">半自动化业务系统</td>
+      <td style="padding: 4px 8px; vertical-align: middle;">¥50,000 – ¥150,000</td>
+      <td style="padding: 4px 8px;">有运营团队的 B2B 商家</td>
+      <td style="padding: 4px 8px;">支持自动报价、客户分级、通知流、数据结构化流程自动化、提升5-10倍人工效率</td>
+      <td style="padding: 4px 8px;">★★★☆☆</td>
+      <td style="padding: 4px 8px;">★★★★★</td>
+      <td class="potential-valuation" style="padding: 4px 8px; vertical-align: middle;">¥500,000 – ¥2,000,000</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px; background-color: #f9fafb;">🔴 L5</td>
+      <td style="padding: 4px 8px;">商业系统平台（可复用）</td>
+      <td style="padding: 4px 8px; vertical-align: middle;">¥150,000 – ¥500,000+</td>
+      <td style="padding: 4px 8px;">SaaS 初创 / 品牌平台型团队</td>
+      <td style="padding: 4px 8px;">模块级系统、可配置客户流、API接口、AI协同、可复用系统结构</td>
+      <td style="padding: 4px 8px;">★★★★★</td>
+      <td style="padding: 4px 8px;">★★★★★</td>
+      <td class="potential-valuation" style="padding: 4px 8px; vertical-align: middle;">¥2,000,000 – ¥10,000,000+</td>
+    </tr>
+  </tbody>
 </table>
 
-<h2 style="font-size: 20px; color: #5e35b1; margin-top: 40px; margin-bottom: 40px;">
-    🎯 正在架构的「 多站点 」系统项目客观定位：L3 - L4 
+    <!-- 🧬 项目定位 -->
+    <section class="about-me" style="margin-top: 40px;"> 
+
+<h2 style="font-size: 26px; color: #5e35b1; margin-top: 40px; margin-bottom: 40px;">
+     <td>🎯 正在架构的「 多站点 」项目定位：L3 - L4 </td> 
+  
 </h2> 
 
+<blockquote style="max-width: 1000px; padding-left: 12px; padding-right: 12px; margin: 0 auto;">
+  <p><strong>功能维度：</strong>具备用户注册验证、订单查询、Webhook同步、权限控制，已接入 Shopify Storefront API，Netlify Functions做无服务器后端。</p>
+  <p><strong>业务复杂度：</strong>中小品牌独立站或外贸轻量级电商系统级别。</p>
+  <p><strong>市场比例：</strong>位于独立站市场中较为高级的<strong>Top20%</strong>轻定制商城层级，超过了基础模板站（40%份额）和普通营销站（30%份额），功能更完善、业务逻辑更复杂。</p>
+  <p><strong>技术水平：</strong>服务器无状态架构，前后端分离，较现代，技术栈优势明显。</p>
+  <p><strong>估值位置：</strong>远超模板站和基础营销站，但距离大型定制系统和SaaS平台还有一定差距。</p>
+  <p><span class="checkmark">✅</span>ChatGPT : 这是个很健康、很有竞争力的中小企业级独立站级别方案，适合希望快速上线并拥有自己用户体系与订单管理的品牌商。</p>
+</blockquote>
+
+
+<style>
+  .checkmark {
+    margin-right: 8px;
+    display: inline-block;
+  }
+</style>
+</blockquote> 
     <p style="font-size: 14px; line-height: 1.4; color: #3e3e3e;">
         © 2025 HawinB2B. All Rights Reserved.
     </p>
 </div>
-</section>  
+</section>   
+
 <!-- 🌐 右下角按钮 -->
 <div id="floating-buttons" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; gap: 12px;">
 
@@ -1329,4 +1360,5 @@ h2 {
 </script>
 
 </body>
+
 </html>   
